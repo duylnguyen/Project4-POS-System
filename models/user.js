@@ -1,7 +1,7 @@
 const mongoose = require('./connection.js')
 
 const UserSchema = new mongoose.Schema({
- userId: {
+ id: {
    type: String,
  },
  firstName: {

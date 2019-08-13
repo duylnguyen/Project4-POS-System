@@ -67,6 +67,16 @@ checkRouter.put('/:checkId', async (req, res) => {
   }
 })
 
+checkRouter.delete('/:checkId', async (req, res) => {
+  try {
+    req.body.userId = req.params.userId
+    await checkApi.deleteCheck(req.params.checkId)
+    res.json('Check Deleted')
+  } catch(err) {
+    res.send(err)
+  }
+ })
+
 module.exports = {
   checkRouter
 }

@@ -37,9 +37,14 @@ function updateCheck(checkId, updatedCheck) {
   return CheckCollection.findByIdAndUpdate(checkId, updatedCheck)
 }
 
+function deleteCheck(checkId) {
+  return CheckCollection.findByIdAndDelete(checkId)
+}
+
 module.exports = {
   getAllChecksByUserId,
   createCheck,
   getSingleCheck,
   updateCheck,
+  deleteCheck
 }
