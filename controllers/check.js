@@ -4,7 +4,11 @@ const checkRouter = express.Router()
 
 checkRouter.get('/', async (req, res) => {
   try {
-    const allChecks = await axios.get('/api/user/')
+    const user = await userApi.getSingleUser(req.params.userId)
+    const allChecks = await checkApi.getAllChecksByUserId(user._id)
+    res.json(allChecks)
+  } catch(err) {
+    res.send(err)
   }
 })
 
