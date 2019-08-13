@@ -36,10 +36,15 @@ function updateMenuItem(menuId, updatedMenu) {
   return MenuCollection.findByIdAndUpdate(menuId, updatedMenu)
 }
 
+function deleteMenuItem(menuId) {
+  return MenuCollection.findByIdAndDelete(menuId)
+}
+
 module.exports = {
   getAllMenuItems,
   createMenuItem,
   getSingleMenuItem,
   updateMenuItem,
+  deleteMenuItem,
 }
 

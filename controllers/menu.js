@@ -40,6 +40,15 @@ menuRouter.put('/:menuId', async (req, res) => {
   }
 })
 
+menuRouter.delete('/:menuId', async (req, res) => {
+  try {
+    await menuApi.deleteMenuItem(req.params.menuId)
+    res.json('Item Deleted')
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 module.exports = {
   menuRouter
 }
