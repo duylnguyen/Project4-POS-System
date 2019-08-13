@@ -38,6 +38,15 @@ userRouter.put('/:userId', async (req, res) => {
   }
 })
 
+userRouter.delete('/:userId', async (req, res) => {
+  try {
+    await userApi.deleteUser(req.params.userId)
+    res.json('User Deleted')
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 module.exports = {
   userRouter
 }
