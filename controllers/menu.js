@@ -22,6 +22,15 @@ menuRouter.post('/', async (req, res) => {
   }
 })
 
+menuRouter.get('/:menuId', async (req, res) => {
+  try {
+    const singleMenuItem = await menuApi.getSingleMenuItem(req.params.menuId)
+    res.json(singleMenuItem)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 module.exports = {
   menuRouter
 }

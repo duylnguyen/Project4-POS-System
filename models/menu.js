@@ -28,8 +28,13 @@ function createMenuItem(menuObject) {
   return MenuCollection.create(menuObject)
 }
 
+function getSingleMenuItem(menuId) {
+  return MenuCollection.findById(menuId)
+}
+
 module.exports = {
   getAllMenuItems,
   createMenuItem,
+  getSingleMenuItem,
 }
 
