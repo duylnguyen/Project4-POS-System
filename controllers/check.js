@@ -57,6 +57,16 @@ checkRouter.get('/:checkId', async (req, res) => {
   }  
 })
 
+checkRouter.put('/:checkId', async (req, res) => {
+  try {
+    req.body.userId = req.params.userId
+    const updatedCheck = await checkApi.updateCheck(req.params.checkId, req.body)
+    res.json(updatedCheck)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 module.exports = {
   checkRouter
 }

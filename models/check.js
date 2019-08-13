@@ -33,8 +33,13 @@ function getSingleCheck(checkId) {
   return CheckCollection.findById(checkId)
 }
 
+function updateCheck(checkId, updatedCheck) {
+  return CheckCollection.findByIdAndUpdate(checkId, updatedCheck)
+}
+
 module.exports = {
   getAllChecksByUserId,
   createCheck,
   getSingleCheck,
+  updateCheck,
 }
