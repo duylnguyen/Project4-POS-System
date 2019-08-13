@@ -22,6 +22,11 @@ function getAllChecksByUserId(userId) {
   return CheckCollection.find({userId: userId})
 }
 
+function createCheck(checkObject) {
+  return CheckCollection.create(checkObject)
+}
+
 module.exports = {
   getAllChecksByUserId,
+  createCheck,
 }
