@@ -31,6 +31,15 @@ menuRouter.get('/:menuId', async (req, res) => {
   }
 })
 
+menuRouter.put('/:menuId', async (req, res) => {
+  try {
+    const updatedMenuItem = await menuApi.updateMenuItem(req.params.menuId, req.body)
+    res.json(updatedMenuItem)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 module.exports = {
   menuRouter
 }

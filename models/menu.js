@@ -32,9 +32,14 @@ function getSingleMenuItem(menuId) {
   return MenuCollection.findById(menuId)
 }
 
+function updateMenuItem(menuId, updatedMenu) {
+  return MenuCollection.findByIdAndUpdate(menuId, updatedMenu)
+}
+
 module.exports = {
   getAllMenuItems,
   createMenuItem,
   getSingleMenuItem,
+  updateMenuItem,
 }
 
