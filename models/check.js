@@ -29,7 +29,12 @@ function createCheck(checkObject) {
   return CheckCollection.create(checkObject)
 }
 
+function getSingleCheck(checkId) {
+  return CheckCollection.findById(checkId)
+}
+
 module.exports = {
   getAllChecksByUserId,
   createCheck,
+  getSingleCheck,
 }
