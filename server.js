@@ -7,6 +7,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 app.use('/api/user', userRouter)
+app.use('/api/user/:userId/check', checkRouter)
 
 app.get('/*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)

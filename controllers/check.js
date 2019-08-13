@@ -1,6 +1,7 @@
 const express = require('express')
 const checkApi = require('../models/check.js')
-const checkRouter = express.Router()
+const userApi = require('../models/user.js')
+const checkRouter = express.Router({mergeParams: true})
 
 checkRouter.get('/', async (req, res) => {
   try {
@@ -11,6 +12,40 @@ checkRouter.get('/', async (req, res) => {
     res.send(err)
   }
 })
+
+// checkRouter.get('/', (req, res) => {
+//   userApi.getSingleUser(req.params.userId)
+//     .then((user) => {
+//       checkApi.getAllChecksByUserId(user._id)
+//         .then((checks) => {
+//           res.json(checks)
+//         })
+//     })
+//     .catch((err) => {
+//       res.send(err)
+//     })
+// })
+
+checkRouter.post('/', async (req, res) => {
+  try {
+    req.body.userId = req.params.userId
+    const newCheck = await checkApi.createCheck(req.body)
+    res.json(newCheck)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
+// checkRouter.post('/', (req, res) => {
+//     req.body.userId = req.params.userId
+//     checkApi.createCheck(req.body)
+//       .then((check) => {
+//         res.json(check)
+//       })
+//       .catch((err) => {
+//         res.send(err)
+//       })
+// })
 
 module.exports = {
   checkRouter

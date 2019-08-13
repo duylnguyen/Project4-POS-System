@@ -13,7 +13,10 @@ const CheckSchema = new mongoose.Schema({
    type: Boolean,
    default: false
  },
- items: []
+ items: [],
+ userId: {
+   type: mongoose.Types.ObjectId
+ }
 })
 
 const CheckCollection = mongoose.model('Check', CheckSchema)
