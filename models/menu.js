@@ -40,11 +40,16 @@ function deleteMenuItem(menuId) {
   return MenuCollection.findByIdAndDelete(menuId)
 }
 
+function getAllMenuItemByCheckId(checkId) {
+  return MenuCollection.find({checkId: checkId})
+}
+
 module.exports = {
   getAllMenuItems,
   createMenuItem,
   getSingleMenuItem,
   updateMenuItem,
   deleteMenuItem,
+  getAllMenuItemByCheckId
 }
 

@@ -15,8 +15,8 @@ menuRouter.get('/', async (req, res) => {
 
 menuRouter.post('/', async (req, res) => {
   try {
-    const allMenuItems = await menuApi.createMenuItem(req.body)
-    res.json(allMenuItems)
+    const newItem = await menuApi.createMenuItem(req.body)
+    res.json(newItem)
   } catch(err) {
     res.send(err)
   }

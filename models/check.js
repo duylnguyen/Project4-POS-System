@@ -13,7 +13,7 @@ const CheckSchema = new mongoose.Schema({
    type: Boolean,
    default: false
  },
- items: [],
+ menu: [{type: mongoose.Schema.Types.ObjectId, ref: 'Menu'}],
  userId: {
    type: mongoose.Types.ObjectId
  }
