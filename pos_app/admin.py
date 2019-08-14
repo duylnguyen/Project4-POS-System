@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import User, Ticket, Menu
 
-# Register your models here.
+admin.site.register([User, Ticket, Menu])
