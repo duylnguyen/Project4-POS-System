@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 
 export default class Mainpage extends Component {
     render() {
@@ -15,7 +16,7 @@ export default class Mainpage extends Component {
                         <button>Ticket</button>
                     </div>
                     <div className='user'>
-                        <button>Employees</button>
+                        <Link to='/users'><button>Employees</button></Link>
                     </div>
                     {/* <div className='space'>
 

@@ -37,6 +37,35 @@ export default class User extends Component {
             return { isEditFormDisplayed: !state.isEditFormDisplayed }
         })
     }
+
+    handleChange = (event) => {
+        let copiedUser = {...this.state.user}
+        copiedUser[event.target.name] = event.target.value
+
+        this.setState({ user: copiedUser })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+
+        axios.put(`/api/v1/users/${this.props.match.params.id}/`, this.state.user)
+            .then((res) => {
+                this.setState({
+                    user: res.data,
+                    isEditFormDisplayed: false
+                })
+            })
+            .then(() => {
+                this.getSingleUser()
+            })
+            .catch((err) => {
+                console.log(err.res)
+            })   
+    }
+
+    handleDelete = () => {
+        axios.delete(`/api/`)
+    }
  
     render() {
         return this.state.isEditFormDisplayed ? (
@@ -81,6 +110,11 @@ export default class User extends Component {
                 <p>First Name: {this.state.user.first_name}</p>
                 <p>Last Name: {this.state.user.last_name}</p>
                 <p>Phone: {this.state.user.phone}</p>
+                <button
+					className='toggleBtn'
+					onClick={this.handleToggleEditForm}>
+					Edit User
+				</button>
             </div>
         )
     }
