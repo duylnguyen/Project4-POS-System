@@ -16,7 +16,7 @@ class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets')
 
     def __str__(self):
-        return self.ticket_number
+        return str(self.id)
 
 class Menu(models.Model):
     menu_type = models.CharField(max_length=128)

@@ -4,6 +4,7 @@ import Mainpage from "./components/Mainpage";
 import Users from "./components/Users";
 import User from "./components/User"
 import Tickets from "./components/Tickets"
+import MenuItems from "./components/MenuItems"
 import "./App.css";
 import NewUserForm from "./components/NewUserForm";
 
@@ -14,6 +15,7 @@ class App extends Component {
                 <Mainpage />
                 {/* <div> */}
                     <Switch>
+                        <Route path="/menus" component={MenuItems}/>
                         <Route path="/tickets" component={Tickets}/>
                         <Route path="/users/new" component={NewUserForm}/>
                         <Route path="/users/:id" component={User}/>
