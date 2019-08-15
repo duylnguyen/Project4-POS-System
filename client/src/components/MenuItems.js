@@ -5,7 +5,8 @@ import { Link } from "react-router-dom"
 export default class Users extends Component {
 
     state = {
-        menus: []
+        menus: [],
+        error: ''
     }
 
     componentDidMount() {

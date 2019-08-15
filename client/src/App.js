@@ -6,7 +6,8 @@ import User from "./components/User"
 import Tickets from "./components/Tickets"
 import MenuItems from "./components/MenuItems"
 import "./App.css";
-import NewUserForm from "./components/NewUserForm";
+import NewUserForm from "./components/NewUserForm"
+import NewMenuItemForm from "./components/NewMenuItemForm"
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                 <Mainpage />
                 {/* <div> */}
                     <Switch>
+                        <Route path="/menus/new" component={NewMenuItemForm}/>
                         <Route path="/menus" component={MenuItems}/>
                         <Route path="/tickets" component={Tickets}/>
                         <Route path="/users/new" component={NewUserForm}/>

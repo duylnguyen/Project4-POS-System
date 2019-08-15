@@ -10,10 +10,10 @@ export default class Mainpage extends Component {
                         <h1>POS</h1>
                     </div>
                     <div className='menu'>
-                        <button>Menu Items</button>
+                        <Link to='/menus'><button>Menu Items</button></Link>
                     </div>
                     <div className='ticket'>
-                        <button>Ticket</button>
+                        <Link to='/tickets'><button>Tickets</button></Link>
                     </div>
                     <div className='user'>
                         <Link to='/users'><button>Employees</button></Link>
