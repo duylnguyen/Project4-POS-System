@@ -7,7 +7,7 @@ class MenuSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Menu
-        field = ('id', 'menu_type', 'name', 'price')
+        fields = ('id', 'menu_type', 'name', 'price', 'tickets')
 
 class TicketSerializer(serializers.ModelSerializer):
     menu_items = MenuSerializer(many=True, read_only=True)

@@ -1,10 +1,12 @@
 import React, { Component } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 export default class Users extends Component {
 
     state = {
-        users: []
+        users: [],
+        error: ''
     }
 
     componentDidMount() {
@@ -12,27 +14,42 @@ export default class Users extends Component {
     }
 
     getAllUsers = async () => {
-        const res = await axios.get('/api/user')
-        this.setState({
-            users: res.data
-        })
-        console.log(res)
+        try {
+            const res = await axios.get('/api/v1/users/')
+            this.setState({ users: res.data })
+        } catch(err) {
+            console.log(err)
+            this.setState({ error: err.message })
+        }   
     }
+
+    // getAllUsers = () => {
+    //     axios.get(`/api/v1/users/`)
+    //         .then(res => {
+    //             this.setState({users: res.data})
+    //         })
+    // }
 
     render() {
-        let usersList = this.state.users.map((user) => {
-            return (
-                <div>
-                    <h3>{user.firstName} {user.lastName}</h3>
-                    <p>Phone: {user.phone}</p>
-                </div>
-            )
-        })
-
+        if (this.state.error){
+            return <div>{this.state.error}</div>
+        }
         return (
             <div>
-                {usersList}
+                <div>
+                    <h1>All Users</h1>
+                    {this.state.users.map(user => (
+                        <div key={user.id}>
+                            <Link to={`/users/${user.id}`} >{user.first_name} {user.last_name}</Link>
+                        </div>
+                    ))}
+                </div>
+
+                <div>
+                    <Link className='new-user-form' to='/users/new'><button>Add User</button></Link>
+                </div>
             </div>
-        )
+        );
     }
 }
+

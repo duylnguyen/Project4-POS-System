@@ -1,19 +1,26 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Users from "./components/Users"
-import "./App.css"
+import React, {Component} from "react";
+import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import Mainpage from "./components/Mainpage";
+import Users from "./components/Users";
+import User from "./components/User"
+import "./App.css";
+import NewUserForm from "./components/NewUserForm";
 
-function App() {
-  return (
-    <div className='App'>
-      <Router>
-        <Switch>
-          <Route exact path='/' component={Users}/>
-          {/* <Route path='/user' component={Users}/> */}
-        </Switch>
-      </Router>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+            <Router>
+                <Mainpage />
+                {/* <div> */}
+                    <Switch>
+                      <Route path="/users/new" component={NewUserForm}/>
+                      <Route path="/users/:id" component={User}/>
+                      <Route path="/users" component={Users}/>
+                    </Switch>
+                {/* </div> */}
+            </Router>
+        );
+    }
 }
 
 export default App;
