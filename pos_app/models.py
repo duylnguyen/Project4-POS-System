@@ -10,7 +10,6 @@ class User(models.Model):
         return self.first_name
 
 class Ticket(models.Model):
-    ticket_number = models.CharField(max_length=128)
     open_time = models.DateTimeField(auto_now=True)
     close_time = models.DateTimeField(auto_now=True)
     open_ticket = models.BooleanField(default=False)

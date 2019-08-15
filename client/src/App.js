@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Mainpage from "./components/Mainpage";
 import Users from "./components/Users";
 import User from "./components/User"
+import Tickets from "./components/Tickets"
 import "./App.css";
 import NewUserForm from "./components/NewUserForm";
 
@@ -13,9 +14,10 @@ class App extends Component {
                 <Mainpage />
                 {/* <div> */}
                     <Switch>
-                      <Route path="/users/new" component={NewUserForm}/>
-                      <Route path="/users/:id" component={User}/>
-                      <Route path="/users" component={Users}/>
+                        <Route path="/tickets" component={Tickets}/>
+                        <Route path="/users/new" component={NewUserForm}/>
+                        <Route path="/users/:id" component={User}/>
+                        <Route path="/users" component={Users}/>
                     </Switch>
                 {/* </div> */}
             </Router>

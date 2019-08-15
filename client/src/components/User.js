@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Redirect } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default class User extends Component {
 
@@ -83,7 +84,20 @@ export default class User extends Component {
 
         if (this.state.redirectToUsers) {
 			return <Redirect to='/users' />;
-		}
+        }
+        
+        let ticketList = this.state.user.tickets.map(ticket => {
+			return (
+				<div>
+					<Link
+						to={`/users/${this.props.match.params.id}/tickets/${
+							ticket.id
+						}`}>
+                        <p>Ticket #: {ticket.id}  Open at: {ticket.open_time}</p>
+					</Link>
+				</div>
+			);
+		});
 
         return this.state.isEditFormDisplayed ? (
 			<form onSubmit={this.handleSubmit}>
@@ -124,9 +138,22 @@ export default class User extends Component {
 			</form>
 		) : (
             <div>
+                <p>User ID: {this.state.user.id}</p>
                 <p>First Name: {this.state.user.first_name}</p>
                 <p>Last Name: {this.state.user.last_name}</p>
                 <p>Phone: {this.state.user.phone}</p>
+                
+                <h3>All Tickets:</h3>
+				<div>{ticketList}</div>
+				<div>
+					<Link
+						to={`/users/${
+							this.props.match.params.id
+						}/ticket/new`}>
+						Add New Ticket
+					</Link>
+				</div>
+
                 <button
 					className='toggleBtn'
 					onClick={this.handleToggleEditForm}>
