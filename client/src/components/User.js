@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
+import { Redirect } from "react-router-dom"
 
 export default class User extends Component {
 
@@ -64,10 +65,26 @@ export default class User extends Component {
     }
 
     handleDelete = () => {
-        axios.delete(`/api/`)
+        axios.delete(`/api/v1/users/${this.state.user.id}/`)
+            .then(() => {
+                this.setState({
+                    redirectToUsers: true
+                })
+            })
+            .then(() => {
+                this.getSingleUser()
+            })
+            .catch((err) => {
+                console.log(err.res)
+            })   
     }
  
     render() {
+
+        if (this.state.redirectToUsers) {
+			return <Redirect to='/users' />;
+		}
+
         return this.state.isEditFormDisplayed ? (
 			<form onSubmit={this.handleSubmit}>
 				<div>
@@ -115,6 +132,7 @@ export default class User extends Component {
 					onClick={this.handleToggleEditForm}>
 					Edit User
 				</button>
+                <button onClick={this.handleDelete}>Delete User</button>
             </div>
         )
     }
