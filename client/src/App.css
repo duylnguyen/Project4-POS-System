@@ -64,8 +64,8 @@ a.button3:hover {
 }
 
 #root {
-  margin: 5px;
-  height: 40rem;
+  height: 100vh;
+  background-color: rgb(37, 37, 37);
 }
 
 .mainpage {
@@ -73,6 +73,7 @@ a.button3:hover {
 }
 
 .wrapper1 {
+  margin: 5px;
   display: flex;
   width: 100%;
   flex-direction: row;

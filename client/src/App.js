@@ -5,10 +5,12 @@ import Users from "./components/Users";
 import User from "./components/User"
 import Tickets from "./components/Tickets"
 import MenuItems from "./components/MenuItems"
+import MenuItem from "./components/MenuItem"
 import Display from "./components/Display"
 import "./App.css";
 import NewUserForm from "./components/NewUserForm"
 import NewMenuItemForm from "./components/NewMenuItemForm"
+import NewTicketForm from "./components/NewTicketForm";
 
 class App extends Component {
     render() {
@@ -31,7 +33,9 @@ class App extends Component {
                                 <div className='wrapper3'>
                                     <Switch>
                                         <Route path="/menus/new" component={NewMenuItemForm}/>
+                                        <Route path="/menus/:id" component={MenuItem}/>
                                         <Route path="/menus" component={MenuItems}/>
+                                        <Route path="/users/:id/ticket/new" component={NewTicketForm}/>
                                         <Route path="/tickets" component={Tickets}/>
                                         <Route path="/users/new" component={NewUserForm}/>
                                         <Route path="/users/:id" component={User}/>

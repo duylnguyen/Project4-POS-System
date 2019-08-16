@@ -36,8 +36,8 @@ export default class NewMenuItemForm extends Component {
 	};
 
 	render() {
-		if (this.state.redirectToAllUsers) {
-			return <Redirect to={`/menus`} />;
+		if (this.state.redirectToMenuItems) {
+			return <Redirect to='/menus' />;
 		}
 		return (
 			<div>

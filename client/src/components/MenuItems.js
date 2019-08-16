@@ -30,7 +30,6 @@ export default class Users extends Component {
         return (
             <div className='menuItem'>
                 
-                    {/* <h1>All Menu Items</h1> */}
                     {this.state.menus.map(menu => (
                         <div key={menu.id} className='items'>
                             <Link to={`/menus/${menu.id}`} >

@@ -56,9 +56,9 @@ export default class User extends Component {
                     user: res.data,
                     isEditFormDisplayed: false
                 })
-            })
-            .then(() => {
-                this.getSingleUser()
+                .then(() => {
+                    this.getSingleUser()
+                })
             })
             .catch((err) => {
                 console.log(err.res)
@@ -71,9 +71,9 @@ export default class User extends Component {
                 this.setState({
                     redirectToUsers: true
                 })
-            })
-            .then(() => {
-                this.getSingleUser()
+                .then(() => {
+                    this.getSingleUser()
+                })
             })
             .catch((err) => {
                 console.log(err.res)
@@ -150,7 +150,7 @@ export default class User extends Component {
 						to={`/users/${
 							this.props.match.params.id
 						}/ticket/new`}>
-						Add New Ticket
+						<button>Create New Ticket</button>
 					</Link>
 				</div>
 
@@ -160,6 +160,7 @@ export default class User extends Component {
 					Edit User
 				</button>
                 <button onClick={this.handleDelete}>Delete User</button>
+                
             </div>
         )
     }
