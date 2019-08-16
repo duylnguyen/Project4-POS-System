@@ -6,9 +6,6 @@ export default class Mainpage extends Component {
         return (
             <div className='mainpage'>
                 <div className='wrapper1'>
-                    <div className='logo'>
-                        <h1>POS</h1>
-                    </div>
                     <div className='menu'>
                         <Link to='/menus'><button>Menu Items</button></Link>
                     </div>
@@ -18,9 +15,6 @@ export default class Mainpage extends Component {
                     <div className='user'>
                         <Link to='/users'><button>Employees</button></Link>
                     </div>
-                    {/* <div className='space'>
-
-                    </div> */}
                     <div className='login'>
                         <button>Log In</button>
                     </div>

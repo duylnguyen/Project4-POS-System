@@ -28,11 +28,11 @@ export default class Users extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <div>
-                <div>
-                    <h1>All Menu Items</h1>
+            <div className='menuItem'>
+                
+                    {/* <h1>All Menu Items</h1> */}
                     {this.state.menus.map(menu => (
-                        <div key={menu.id}>
+                        <div key={menu.id} className='items'>
                             <Link to={`/menus/${menu.id}`} >
                                 <button>
                                 <p>{menu.menu_type}</p>
@@ -42,11 +42,11 @@ export default class Users extends Component {
                             </Link>
                         </div>
                     ))}
-                </div>
+                
 
-                <div>
+                
                     <Link className='new-menu-form' to='/menus/new'><button>Add Item</button></Link>
-                </div>
+                
             </div>
         );
     }

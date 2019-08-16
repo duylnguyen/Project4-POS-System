@@ -5,6 +5,7 @@ import Users from "./components/Users";
 import User from "./components/User"
 import Tickets from "./components/Tickets"
 import MenuItems from "./components/MenuItems"
+import Display from "./components/Display"
 import "./App.css";
 import NewUserForm from "./components/NewUserForm"
 import NewMenuItemForm from "./components/NewMenuItemForm"
@@ -13,17 +14,38 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <Mainpage />
-                {/* <div> */}
-                    <Switch>
-                        <Route path="/menus/new" component={NewMenuItemForm}/>
-                        <Route path="/menus" component={MenuItems}/>
-                        <Route path="/tickets" component={Tickets}/>
-                        <Route path="/users/new" component={NewUserForm}/>
-                        <Route path="/users/:id" component={User}/>
-                        <Route path="/users" component={Users}/>
-                    </Switch>
-                {/* </div> */}
+                <div className='container'>
+                    <div className='wrapper2'>
+                        <Mainpage />
+                    </div>
+                    {/* <div className='container2'>
+                        <div className='wrapper3'>
+                            <MenuItems />
+                        </div>
+                        <div className='wrapper4'>
+                            <Display />
+                        </div>
+                    </div> */}
+                        
+                            <div className='container2'>
+                                <div className='wrapper3'>
+                                    <Switch>
+                                        <Route path="/menus/new" component={NewMenuItemForm}/>
+                                        <Route path="/menus" component={MenuItems}/>
+                                        <Route path="/tickets" component={Tickets}/>
+                                        <Route path="/users/new" component={NewUserForm}/>
+                                        <Route path="/users/:id" component={User}/>
+                                        <Route path="/users" component={Users}/>
+                                    </Switch>
+
+                                </div>
+                            <div className='wrapper4'>
+                            {/* <Display /> */}
+                        </div>
+                        </div>
+                    
+                    
+                </div>
             </Router>
         );
     }
