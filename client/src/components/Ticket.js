@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Redirect } from "react-router-dom"
 import axios from "axios"
 
 export default class User extends Component {
@@ -33,8 +34,27 @@ export default class User extends Component {
             this.setState({ error: error.message })
         }
     }
+
+    handleDelete = () => {
+        axios.delete(`/api/v1/tickets/${this.state.ticket.id}/`)
+            .then(() => {
+                this.setState({
+                    redirectToTickets: true
+                })
+                .then(() => {
+                    this.getSingleTicket()
+                })
+            })
+            .catch((err) => {
+                console.log(err.res)
+            })   
+    }
  
     render() {
+
+        if (this.state.redirectToTickets) {
+			return <Redirect to='/tickets' />;
+        }
 
         return (
             <div>
