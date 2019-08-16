@@ -6,6 +6,7 @@ export default class Users extends Component {
 
     state = {
         menus: [],
+        displayItem: [],
         error: ''
     }
 
@@ -22,6 +23,12 @@ export default class Users extends Component {
             this.setState({ error: err.message })
         }   
     }
+
+    // addToCart = (menuItem) => {
+    //     const copiedItemToDisplay = [...this.state.displayItem]
+    //     copiedItemToDisplay.push(this.state.displayItem[menuItem])
+    //     this.setState({displayItem: copiedItemToDisplay})
+    // }
 
     render() {
         if (this.state.error){

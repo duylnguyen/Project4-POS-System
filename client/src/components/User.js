@@ -149,7 +149,7 @@ export default class User extends Component {
 					<Link
 						to={`/users/${
 							this.props.match.params.id
-						}/ticket/new`}>
+						}/tickets/new`}>
 						<button>Create New Ticket</button>
 					</Link>
 				</div>

@@ -26,17 +26,6 @@ export default class Tickets extends Component {
         }   
     }
 
-    getSingleUser = async (userId) => {
-        try {
-            const res = await axios.get(`/api/v1/users/${userId}/`)
-            this.setState({
-                user: res.data,
-            })
-        } catch(error) {
-            this.setState({ error: error.message })
-        }
-    }
-
     render() {
         if (this.state.error){
             return <div>{this.state.error}</div>
@@ -47,9 +36,10 @@ export default class Tickets extends Component {
                     <h1>All Tickets</h1>
                     {this.state.tickets.map(ticket => (
                         <div key={ticket.id}>
-                            <Link to={`/tickets/${ticket.id}`} >{ticket.ticket_number}</Link>
+                            <Link to={`/tickets/${ticket.id}`} >
                                 <p>Ticket #: {ticket.id}  Open: {ticket.open_time}</p>
                                 <p>Server Id: {ticket.user}</p>
+                            </Link>
                         </div>
                     ))}
                 </div>

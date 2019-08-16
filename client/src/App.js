@@ -7,6 +7,7 @@ import Tickets from "./components/Tickets"
 import MenuItems from "./components/MenuItems"
 import MenuItem from "./components/MenuItem"
 import Display from "./components/Display"
+import Ticket from "./components/Ticket"
 import "./App.css";
 import NewUserForm from "./components/NewUserForm"
 import NewMenuItemForm from "./components/NewMenuItemForm"
@@ -35,7 +36,8 @@ class App extends Component {
                                         <Route path="/menus/new" component={NewMenuItemForm}/>
                                         <Route path="/menus/:id" component={MenuItem}/>
                                         <Route path="/menus" component={MenuItems}/>
-                                        <Route path="/users/:id/ticket/new" component={NewTicketForm}/>
+                                        <Route path="/users/:id/tickets/new" component={NewTicketForm}/>
+                                        <Route path="/tickets/:id" component={Ticket}/>
                                         <Route path="/tickets" component={Tickets}/>
                                         <Route path="/users/new" component={NewUserForm}/>
                                         <Route path="/users/:id" component={User}/>
@@ -44,7 +46,7 @@ class App extends Component {
 
                                 </div>
                             <div className='wrapper4'>
-                            {/* <Display /> */}
+                                <Display />
                         </div>
                         </div>
                     

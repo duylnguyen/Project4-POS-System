@@ -18,6 +18,7 @@ class Menu(models.Model):
         return self.menu_type
 
 class Ticket(models.Model):
+    table_number = models.CharField(max_length=128, default='')
     open_time = models.DateTimeField(auto_now=True)
     close_time = models.DateTimeField(auto_now=True)
     open_ticket = models.BooleanField(default=False)
