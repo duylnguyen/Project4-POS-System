@@ -6,39 +6,15 @@ export default class NewTicketForm extends Component {
 
     state = {
         newTicket: {
-            table: '',
+            table_number: 0,
             open: '',
             close: '',
-            openTicket: false,
-            menuItems: [],
+            open_ticket: false,
+            menu_items: [],
             user: this.props.match.params.id
         },
         selectedItems: []
     }
-
-    handleChange = event => {
-		const copiedNewTicket = { ...this.state.newTicket };
-		copiedNewTicket[event.target.name] = event.target.value;
-		this.setState({ newTicket: copiedNewTicket });
-	};
-
-	handleSubmit = (event) => {
-		event.preventDefault();
-        axios.post(`/api/v1/tickets/`, this.state.newTicket)
-            .then(() => {
-			this.setState({
-				newTicket: {
-                    table: '',
-                    open: new Date,
-                    close: '',
-                    openTicket: true,
-                    menuItems: [],
-                    user: this.props.match.params.id
-                },
-                redirectToAllUsers: true
-			});
-		});
-    };
     
     handleMenuItem = (event) => {
         const target = event.target.name
@@ -59,20 +35,28 @@ export default class NewTicketForm extends Component {
         }
         this.setState(state => {
             return {newTicket: {
-                table: state.newTicket.table,
+                table_number: state.newTicket.table_number,
                 open: state.newTicket.open,
                 close: state.newTicket.close,
-                openTicket: state.newTicket.openTicket,
-                menuItems: state.selectedItems,
+                open_ticket: state.newTicket.open_ticket,
+                menu_items: state.selectedItems.map(item => {
+                    return item
+                }),
                 user: state.newTicket.user
             }}
         })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post(`/api/v1/tickets/`, this.state.newTicket)
     }
 
     render() {
         return (
             <div>
                 <MenuItemList handleMenuItem={this.handleMenuItem} />
+                <button onClick={this.handleSubmit}>Add</button>
             </div>
         )
     }

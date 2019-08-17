@@ -38,15 +38,15 @@ export default class Users extends Component {
             <div className='menuItem'>
                 
                     {this.state.menus.map(menu => (
-                        // <div key={menu.id} className='items' >
+                        <div key={menu.id} className='items' >
                             
-                                <button onClick={this.props.handleMenuItem} name={menu.id}>
+                                <button onClick={this.props.handleMenuItem} name={menu.id} value={menu}>
                                 {menu.menu_type}<br/>
                                 {menu.name}<br/>
                                 {menu.price}<br/>
                                 </button>
                             
-                        // </div>
+                         </div>
                     ))}
                 
 

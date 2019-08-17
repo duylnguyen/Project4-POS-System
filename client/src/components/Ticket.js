@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 import axios from "axios"
 
-export default class User extends Component {
+export default class Ticket extends Component {
 
     state = {
         ticket: {
@@ -13,6 +13,7 @@ export default class User extends Component {
             menuItems: [],
             user: this.props.match.params.id
         },
+        ticketItems: [],
         isEditFormDisplayed: false,
         redirectToTickets: false,
         error: ''
@@ -26,9 +27,16 @@ export default class User extends Component {
     getSingleTicket = async (ticketId) => {
         try {
             const res = await axios.get(`/api/v1/tickets/${ticketId}/`)
+            res.data.menu_items.forEach((item) => {
+                axios.get(`/api/v1/menus/${item}/`)
+                    .then((item) => {
+                        let ticketItems = [...this.state.ticketItems]
+                        ticketItems.push(item.data)
+                        this.setState({ticketItems: ticketItems })
+                    })
+            })
             this.setState({
-                ticket: res.data,
-                menuItems: res.data.menuItems
+                ticket: res.data
             })
         } catch(error) {
             this.setState({ error: error.message })

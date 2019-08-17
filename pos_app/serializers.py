@@ -3,14 +3,14 @@ from rest_framework import serializers
 from .models import User, Ticket, Menu
 
 class MenuSerializer(serializers.ModelSerializer):
-    tickets = serializers.PrimaryKeyRelatedField(queryset=Menu.objects.all(), many=True)
+    tickets = serializers.PrimaryKeyRelatedField(queryset=Ticket.objects.all(), many=True)
 
     class Meta:
         model = Menu
         fields = ('id', 'menu_type', 'name', 'price', 'tickets')
 
 class TicketSerializer(serializers.ModelSerializer):
-    menu_items = MenuSerializer(many=True, read_only=True)
+    menu_items = serializers.PrimaryKeyRelatedField(queryset=Menu.objects.all(), many=True)
 
     class Meta:
         model = Ticket
