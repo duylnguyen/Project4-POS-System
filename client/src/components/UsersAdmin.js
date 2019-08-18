@@ -23,7 +23,6 @@ export default class Users extends Component {
         }   
     }
 
-
     render() {
         if (this.state.error){
             return <div>{this.state.error}</div>
@@ -34,15 +33,15 @@ export default class Users extends Component {
                     {/* <h1>All Users</h1> */}
                     {this.state.users.map(user => (
                         <div key={user.id} className='items'>
-                            <Link to={`/users/${user.id}`} ><button>{user.first_name} {user.last_name}</button></Link>
+                            <Link to={`/usersAdmin/${user.id}`} ><button>{user.first_name} {user.last_name}</button></Link>
                         </div>
                     ))}
                 
 
                 
+                    <Link className='new-user-form' to='/users/new'><button>Add User</button></Link>
             
             </div>
         );
     }
 }
-

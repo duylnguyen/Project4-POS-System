@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 
-export default class Users extends Component {
+export default class MenuItemList extends Component {
 
     state = {
         menus: [],
@@ -24,12 +24,6 @@ export default class Users extends Component {
         }   
     }
 
-    // addToCart = (menuItem) => {
-    //     const copiedItemToDisplay = [...this.state.displayItem]
-    //     copiedItemToDisplay.push(this.state.displayItem[menuItem])
-    //     this.setState({displayItem: copiedItemToDisplay})
-    // }
-
     render() {
         if (this.state.error){
             return <div>{this.state.error}</div>
@@ -48,10 +42,6 @@ export default class Users extends Component {
                             
                          </div>
                     ))}
-                
-
-                
-                    {/* <Link className='new-menu-form' to='/menus/new'><button>Add Item</button></Link> */}
                 
             </div>
         );

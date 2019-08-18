@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 
-export default class Users extends Component {
+export default class MenuItemsAdmin extends Component {
 
     state = {
         menus: [],
@@ -39,7 +39,7 @@ export default class Users extends Component {
                 
                     {this.state.menus.map(menu => (
                         <div key={menu.id} className='items'>
-                            <Link to={`/menus/${menu.id}`} >
+                            <Link to={`/menusAdmin/${menu.id}`} >
                                 <button>
                                 <p>{menu.menu_type}</p>
                                 <p>{menu.name}</p> 

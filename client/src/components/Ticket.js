@@ -69,6 +69,11 @@ export default class Ticket extends Component {
                 <p>Table: {this.state.ticket.table_number}</p>
                 <p>Open: {this.state.ticket.open_time}</p>
                 <p>Server ID: {this.state.ticket.user}</p>
+                {this.state.ticketItems.map(item => (
+                    <div>
+                        <p>{item.name}  ${item.price}</p>
+                    </div>    
+                ))}
 
                 <button
 					className='toggleBtn'

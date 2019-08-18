@@ -136,10 +136,10 @@ export default class User extends Component {
 			</form>
 		) : (
             <div>
-                {/* <p>User ID: {this.state.user.id}</p>
+                <p>User ID: {this.state.user.id}</p>
                 <p>First Name: {this.state.user.first_name}</p>
                 <p>Last Name: {this.state.user.last_name}</p>
-                <p>Phone: {this.state.user.phone}</p> */}
+                <p>Phone: {this.state.user.phone}</p>
                 
                 <h3>All Tickets:</h3>
 				<div>{ticketList}</div>
@@ -152,11 +152,12 @@ export default class User extends Component {
 					</Link>
 				</div>
 
-                {/* <button
+                <button
 					className='toggleBtn'
 					onClick={this.handleToggleEditForm}>
 					Edit User
-				</button> */}
+				</button>
+                <button onClick={this.handleDelete}>Delete User</button>
                 
             </div>
         )

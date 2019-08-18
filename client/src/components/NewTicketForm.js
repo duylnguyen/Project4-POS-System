@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MenuItemList from "./MenuItemList"
+import { Redirect } from "react-router-dom"
 import axios from "axios"
 
 export default class NewTicketForm extends Component {
@@ -13,7 +14,8 @@ export default class NewTicketForm extends Component {
             menu_items: [],
             user: this.props.match.params.id
         },
-        selectedItems: []
+        selectedItems: [],
+        redirectToUserTickets: false
     }
     
     handleMenuItem = (event) => {
@@ -27,10 +29,10 @@ export default class NewTicketForm extends Component {
                     return target !== item
                 })}
             })
-        } else {
+            } else {
             this.setState(state => {
                 return {selectedItems: state.selectedItems.concat(target)
-            }
+                }
             })
         }
         this.setState(state => {
@@ -50,9 +52,15 @@ export default class NewTicketForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         axios.post(`/api/v1/tickets/`, this.state.newTicket)
+            .then(() => {
+                this.setState({redirectToUserTickets: true})
+            })
     }
 
     render() {
+        // if (this.state.redirectToUserTickets) {
+		// 	return <Redirect to={`/users/${this.props.match.user.id}/tickets`} />;
+		// }
         return (
             <div>
                 <MenuItemList handleMenuItem={this.handleMenuItem} />

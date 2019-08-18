@@ -36,7 +36,7 @@ export default class NewUserForm extends Component {
 
 	render() {
 		if (this.state.redirectToAllUsers) {
-			return <Redirect to={`/users`} />;
+			return <Redirect to={`/usersAdmin`} />;
 		}
 		return (
 			<div>
