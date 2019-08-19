@@ -15,7 +15,8 @@ export default class NewTicketForm extends Component {
             user: this.props.match.params.id
         },
         selectedItems: [],
-        redirectToUserTickets: false
+        redirectToUserTickets: false,
+        tables: [1,2,3,4,5]
     }
     
     handleMenuItem = (event) => {
@@ -57,12 +58,28 @@ export default class NewTicketForm extends Component {
             })
     }
 
+    handleTableSelect = (event) => {
+        const target = event.target
+        this.setState(state => {
+            return {newTicket: {
+                table_number: target.value,
+                open: state.newTicket.open,
+                close: state.newTicket.close,
+                open_ticket: state.newTicket.open_ticket,
+                menu_items: state.newTicket.menu_items,
+                user: state.newTicket.user
+            }}
+        })
+    }
+
     render() {
-        // if (this.state.redirectToUserTickets) {
-		// 	return <Redirect to={`/users/${this.props.match.user.id}/tickets`} />;
-		// }
+        
+        const tableList = this.state.tables.map(table => {
+            return <button onClick={this.handleTableSelect} value={table}>Table {table}</button>
+        })
         return (
             <div>
+                {tableList}
                 <MenuItemList handleMenuItem={this.handleMenuItem} />
                 <button onClick={this.handleSubmit}>Add</button>
             </div>
