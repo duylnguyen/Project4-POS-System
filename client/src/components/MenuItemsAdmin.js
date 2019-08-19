@@ -41,9 +41,9 @@ export default class MenuItemsAdmin extends Component {
                         <div key={menu.id} className='items'>
                             <Link to={`/menusAdmin/${menu.id}`} >
                                 <button>
-                                <p>{menu.menu_type}</p>
-                                <p>{menu.name}</p> 
-                                <p>${menu.price}</p>
+                                {menu.menu_type}<br/>
+                                {menu.name}<br/> 
+                                ${menu.price}<br/>
                                 </button>
                             </Link>
                         </div>

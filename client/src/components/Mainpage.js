@@ -22,7 +22,7 @@ export default class Mainpage extends Component {
                         <Link to='/menusAdmin'><button>Menu Items</button></Link>
                     </div>
                     <div className='ticket'>
-                        <Link to='/tickets'><button>Tickets</button></Link>
+                        <Link to='/ticketsAdmin'><button>Tickets</button></Link>
                     </div>
                     <div className='user'>
                         <Link to='/usersAdmin'><button>Employees</button></Link>

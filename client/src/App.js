@@ -6,11 +6,14 @@ import UsersAdmin from "./components/UsersAdmin"
 import User from "./components/User"
 import UserAdmin from "./components/UserAdmin"
 import Tickets from "./components/Tickets"
+import TicketsAdmin from "./components/TicketsAdmin"
 import MenuItemList from "./components/MenuItemList"
 import MenuItemsAdmin from "./components/MenuItemsAdmin"
 import MenuItem from "./components/MenuItem"
 import MenuItemAdmin from "./components/MenuItemAdmin"
 import Ticket from "./components/Ticket"
+import TicketAdmin from "./components/TicketAdmin"
+
 import "./App.css";
 import NewUserForm from "./components/NewUserForm"
 import NewMenuItemForm from "./components/NewMenuItemForm"
@@ -22,10 +25,18 @@ class App extends Component {
             <Router>
                 <div className='container'>
                     <div className='wrapper2'>
-                        <Mainpage />
+                        <Route path="/users/:id/tickets/:id" component={Ticket}/>
+                        <Route path="/ticketsAdmin/:id" component={TicketAdmin}/>
                     </div>   
+                    
+                    
+                </div> 
                     <div className='container2'>
                         <div className='wrapper3'>
+                            <Mainpage />
+                        </div>
+
+                        <div className='wrapper4'>
                             <Switch>
                                 <Route path="/menus/new" component={NewMenuItemForm}/>
                                 <Route path="/menus/:id" component={MenuItem}/>
@@ -34,20 +45,18 @@ class App extends Component {
                                 <Route path="/menusAdmin" component={MenuItemsAdmin}/>
                                 <Route path="/users/:id/tickets/new" component={NewTicketForm}/>
                                 
-                                <Route path="/users/:id/tickets/:id" component={Ticket}/>
+                                
                                 <Route path="/tickets/:id" component={Ticket}/>
                                 <Route path="/tickets" component={Tickets}/>
+                                <Route path="/ticketsAdmin" component={TicketsAdmin}/>
                                 <Route path="/users/new" component={NewUserForm}/>
                                 <Route path="/usersAdmin/:id" component={UserAdmin}/>
                                 <Route path="/users/:id" component={User}/>
                                 <Route path="/users" component={Users}/>
                                 <Route path="/usersAdmin" component={UsersAdmin}/>
                             </Switch>
+                       
                         </div>
-                        <div className='wrapper4'>
-                            
-                        </div>
-                    </div> 
                 </div>
             </Router>
         );

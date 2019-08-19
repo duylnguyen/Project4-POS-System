@@ -64,6 +64,8 @@ a.button3:hover {
 }
 
 #root {
+  display: flex;
+  flex-direction: row;
   height: 100vh;
   background-color: rgb(37, 37, 37);
 }
@@ -82,17 +84,20 @@ a.button3:hover {
 .container {
   display: flex;
   flex-direction: column;
+  background-color: antiquewhite;
+  width: 35%;
 }
 
 .container2 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 65%;
 }
 
 .wrapper3 {
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 60%;
 }
 
 .menuItem {
@@ -103,7 +108,6 @@ a.button3:hover {
 }
 
 .wrapper4 {
-  background-color: antiquewhite;
-  width: 45%;
+  margin: 5px;
   height: 600px;
 }
