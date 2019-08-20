@@ -59,7 +59,7 @@ export default class NewUserForm extends Component {
 							id='user-first_name'
 							name='first_name'
 							value={this.state.newUser.first_name}
-							onChange={this.onChange}
+							onChange={this.handleChange}
 						/>
 					</div>
 					<div class="field">
