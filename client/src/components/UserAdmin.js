@@ -89,9 +89,8 @@ export default class User extends Component {
         let ticketList = this.state.user.tickets.map(ticket => {
 			return (
 				<div>
-					<Link
-						to={`/users/${this.props.match.params.id}/tickets/${ticket.id}`}>
-                        <p>Ticket #: {ticket.id}  Open at: {ticket.open_time}</p>
+					<Link to={`/usersAdmin/${this.props.match.params.id}/ticketsAdmin/${ticket.id}`}>
+                        <button>Table: {ticket.table_number}</button>
 					</Link>
 				</div>
 			);
@@ -140,14 +139,10 @@ export default class User extends Component {
                 <p>First Name: {this.state.user.first_name}</p>
                 <p>Last Name: {this.state.user.last_name}</p>
                 <p>Phone: {this.state.user.phone}</p>
-                
-                <h3>All Tickets:</h3>
+            
 				<div>{ticketList}</div>
 				<div>
-					<Link
-						to={`/users/${
-							this.props.match.params.id
-						}/tickets/new`}>
+					<Link to={`/users/${this.props.match.params.id}/tickets/new`}>
 						<button>Create New Ticket</button>
 					</Link>
 				</div>

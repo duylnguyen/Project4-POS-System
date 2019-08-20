@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom"
+import Keyboard from 'react-simple-keyboard'
+// import 'simple-keyboard/build/css/index.css'
 
 export default class NewUserForm extends Component {
     
@@ -14,9 +16,9 @@ export default class NewUserForm extends Component {
     }
     
     handleChange = event => {
-		const copiedNewUser = { ...this.state.newUser };
+		const copiedNewUser = { ...this.state.newUser }
 		copiedNewUser[event.target.name] = event.target.value;
-		this.setState({ newUser: copiedNewUser });
+		this.setState({ newUser: copiedNewUser })
 	};
 
 	handleSubmit = (event) => {
@@ -34,26 +36,36 @@ export default class NewUserForm extends Component {
 		});
 	};
 
+	onChange = (input) => {
+		console.log("Input changed", input);
+	}
+	
+	onKeyPress = (button) => {
+		console.log("Button pressed", button);
+	}
+
 	render() {
 		if (this.state.redirectToAllUsers) {
 			return <Redirect to={`/usersAdmin`} />;
 		}
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<div>
-						<label htmlFor='user-first_name'>First Name: </label>
-						<input
+				<form class="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
+					<div class="field">
+						<label htmlFor='user-first_name'>First Name</label>
+						<input 
+							placeholder="First Name" 
 							type='text'
 							id='user-first_name'
 							name='first_name'
 							value={this.state.newUser.first_name}
-							onChange={this.handleChange}
+							onChange={this.onChange}
 						/>
 					</div>
-					<div>
-						<label htmlFor='user-last_name'>Last Name: </label>
-						<input
+					<div class="field">
+						<label htmlFor='user-last_name'>Last Name</label>
+						<input 
+							placeholder="Last Name"
 							type='text'
 							id='user-last_name'
 							name='last_name'
@@ -61,20 +73,26 @@ export default class NewUserForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<div>
-						<label htmlFor='user-phone'>Phone: </label>
-						<input
-							type='text'
-							id='user-phone'
-							name='phone'
-							value={this.state.newUser.phone}
-							onChange={this.handleChange}
-						/>
+					<div class="field">
+							<label htmlFor='user-phone'>Phone: </label>
+							<input
+								type='text'
+								id='user-phone'
+								name='phone'
+								value={this.state.newUser.phone}
+								onChange={this.handleChange}
+							/>
 					</div>
+					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
+					</form>
 					<div>
-						<input type='submit' value='Submit' />
+					<Keyboard
+						onChange={input =>
+						this.onChange(input)}
+						onKeyPress={button =>
+						this.onKeyPress(button)}
+					/>
 					</div>
-				</form>
 			</div>
 		);
 	}

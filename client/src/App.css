@@ -85,13 +85,13 @@ a.button3:hover {
   display: flex;
   flex-direction: column;
   background-color: antiquewhite;
-  width: 35%;
+  width: 28%;
 }
 
 .container2 {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 72%;
 }
 
 .wrapper3 {
@@ -110,4 +110,13 @@ a.button3:hover {
 .wrapper4 {
   margin: 5px;
   height: 600px;
+}
+
+#newUserForm {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#newUserBtn {
+  float: right;
 }

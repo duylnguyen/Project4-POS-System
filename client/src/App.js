@@ -25,10 +25,12 @@ class App extends Component {
             <Router>
                 <div className='container'>
                     <div className='wrapper2'>
-                        <Route path="/users/:id/tickets/:id" component={Ticket}/>
-                        <Route path="/ticketsAdmin/:id" component={TicketAdmin}/>
+                        <Switch>
+                            <Route path="/ticketsAdmin/:ticketId" component={TicketAdmin}/>
+                            <Route path="/users/:id/tickets/:ticketId" component={Ticket}/>
+                            <Route path="/usersAdmin/:id/ticketsAdmin/:ticketId" component={TicketAdmin}/>
+                        </Switch>
                     </div>   
-                    
                     
                 </div> 
                     <div className='container2'>
@@ -44,11 +46,9 @@ class App extends Component {
                                 <Route path="/menus" component={MenuItemList}/>
                                 <Route path="/menusAdmin" component={MenuItemsAdmin}/>
                                 <Route path="/users/:id/tickets/new" component={NewTicketForm}/>
-                                
-                                
-                                {/* <Route path="/tickets/:id" component={Ticket}/> */}
-                                <Route path="/tickets" component={Tickets}/>
+
                                 <Route path="/ticketsAdmin" component={TicketsAdmin}/>
+                                <Route path="/tickets" component={Tickets}/>
                                 <Route path="/users/new" component={NewUserForm}/>
                                 <Route path="/usersAdmin/:id" component={UserAdmin}/>
                                 <Route path="/users/:id" component={User}/>

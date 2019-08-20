@@ -16,12 +16,11 @@ export default class NewTicketForm extends Component {
         },
         selectedItems: [],
         redirectToUserTickets: false,
-        tables: [1,2,3,4,5]
+        tables: [1,2,3,4,5,6,7]
     }
     
     handleMenuItem = (event) => {
         const target = event.target.name
-        console.log(target)
         if (this.state.selectedItems.find(item => {
             return target === item
         })) {
@@ -74,6 +73,10 @@ export default class NewTicketForm extends Component {
 
     render() {
         
+        if (this.state.redirectToUserTickets) {
+			return <Redirect to={`/users/${this.props.match.params.id}`} />;
+        }
+
         const tableList = this.state.tables.map(table => {
             return <button onClick={this.handleTableSelect} value={table}>Table {table}</button>
         })

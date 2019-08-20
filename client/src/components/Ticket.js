@@ -21,13 +21,25 @@ export default class Ticket extends Component {
     }
 
     componentDidMount() {
-        const ticketId = this.props.match.params.id
+        console.log('componentDidMount')
+        const ticketId = this.props.match.params.ticketId
         this.getSingleTicket(ticketId)
     }
+
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        if (this.props.match.params.ticketId !== prevProps.match.params.ticketId) {
+          this.getSingleTicket(this.props.match.params.ticketId);
+        }
+      }
 
     getSingleTicket = async (ticketId) => {
         try {
             const res = await axios.get(`/api/v1/tickets/${ticketId}/`)
+            this.setState({
+                ticket: res.data,
+                ticketItems: []
+            })
             res.data.menu_items.forEach((item) => {
                 axios.get(`/api/v1/menus/${item}/`)
                     .then((item) => {
@@ -36,9 +48,7 @@ export default class Ticket extends Component {
                         this.setState({ticketItems: ticketItems })
                     })
             })
-            this.setState({
-                ticket: res.data
-            })
+            
         } catch(error) {
             this.setState({ error: error.message })
         }
@@ -69,8 +79,10 @@ export default class Ticket extends Component {
 			return <Redirect to='/users' />;
         }
 
+        console.log(this.props.match.params.ticketId)
+
         return (
-            <div>
+            <div key={this.props.match.params.ticketId}>
                 <p>Table: {this.state.ticket.table_number}</p>
                 <p>Open: {this.state.ticket.open_time}</p>
                 <p>Server ID: {this.state.ticket.user}</p>
@@ -83,12 +95,12 @@ export default class Ticket extends Component {
 
                 <h3>Total : ${totalTicket}</h3>
 
-                <button
+                {/* <button
 					className='toggleBtn'
 					onClick={this.handleToggleEditForm}>
 					Edit Ticket
-				</button>
-                <button onClick={this.handleDelete}>Delete Ticket</button>
+				</button> */}
+                {/* <button onClick={this.handleDelete}>Delete Ticket</button> */}
                 
             </div>
         )

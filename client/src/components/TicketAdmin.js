@@ -20,13 +20,25 @@ export default class Ticket extends Component {
     }
 
     componentDidMount() {
-        const ticketId = this.props.match.params.id
+        const ticketId = this.props.match.params.ticketId
         this.getSingleTicket(ticketId)
     }
+
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        if (this.props.match.params.ticketId !== prevProps.match.params.ticketId) {
+          this.getSingleTicket(this.props.match.params.ticketId);
+        }
+      }
+
 
     getSingleTicket = async (ticketId) => {
         try {
             const res = await axios.get(`/api/v1/tickets/${ticketId}/`)
+            this.setState({
+                ticket: res.data,
+                ticketItems: []
+            })
             res.data.menu_items.forEach((item) => {
                 axios.get(`/api/v1/menus/${item}/`)
                     .then((item) => {
@@ -35,9 +47,7 @@ export default class Ticket extends Component {
                         this.setState({ticketItems: ticketItems })
                     })
             })
-            this.setState({
-                ticket: res.data
-            })
+            
         } catch(error) {
             this.setState({ error: error.message })
         }
@@ -60,6 +70,10 @@ export default class Ticket extends Component {
  
     render() {
 
+        const totalTicket = this.state.ticketItems.reduce((acc, currValue) => {
+            return acc + currValue.price
+        }, 0)
+
         if (this.state.redirectToTickets) {
 			return <Redirect to='/usersAdmin' />;
         }
@@ -75,11 +89,13 @@ export default class Ticket extends Component {
                     </div>    
                 ))}
 
-                <button
+                <h3>Total : ${totalTicket}</h3>
+
+                {/* <button
 					className='toggleBtn'
 					onClick={this.handleToggleEditForm}>
 					Edit Ticket
-				</button>
+				</button> */}
                 <button onClick={this.handleDelete}>Delete Ticket</button>
                 
             </div>

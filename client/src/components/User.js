@@ -83,7 +83,7 @@ export default class User extends Component {
     render() {
 
         if (this.state.redirectToUsers) {
-			return <Redirect to='/users' />;
+			return <Redirect to='/users'/>;
         }
         
         let ticketList = this.state.user.tickets.map(ticket => {
@@ -136,7 +136,7 @@ export default class User extends Component {
 		) : (
             <div>
                 
-                <h3>All Tickets:</h3>
+                <h3>Server: {this.state.user.first_name} {this.state.user.last_name}</h3>
 				<div>{ticketList}</div>
 				<div>
 					<Link
