@@ -19,7 +19,6 @@ export default class Tickets extends Component {
             const res = await axios.get('/api/v1/tickets/')
             this.setState({ tickets: res.data })
         } catch(err) {
-            console.log(err)
             this.setState({ error: err.message })
         }   
     }

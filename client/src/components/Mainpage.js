@@ -28,7 +28,7 @@ export default class Mainpage extends Component {
                         <Link to='/usersAdmin'><button>Employees</button></Link>
                     </div>
                     <div className='mainpage'>
-                        <button onClick={this.handleToggleAdminView}>User View</button>
+                        <button onClick={this.handleToggleAdminView}>Log Out</button>
                     </div>
                 </div>
             

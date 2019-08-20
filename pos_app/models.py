@@ -14,6 +14,7 @@ class Ticket(models.Model):
     open_time = models.DateTimeField(auto_now=True)
     close_time = models.DateTimeField(auto_now=True)
     open_ticket = models.BooleanField(default=False)
+    total = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets', blank=True)
 
     def __str__(self):
