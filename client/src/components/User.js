@@ -88,14 +88,13 @@ export default class User extends Component {
         
         let ticketList = this.state.user.tickets.map(ticket => {
 			return (
-				<div>
-					<Link
-						to={`/users/${this.props.match.params.id}/tickets/${ticket.id}`}>
-                        <p>Ticket #: {ticket.id}  Open at: {ticket.open_time}</p>
+                <div>
+					<Link to={`/users/${this.props.match.params.id}/tickets/${ticket.id}`}>
+                        <button>Table: {ticket.table_number}</button>
 					</Link>
 				</div>
-			);
-		});
+			)
+		})
 
         return this.state.isEditFormDisplayed ? (
 			<form onSubmit={this.handleSubmit}>
@@ -136,10 +135,6 @@ export default class User extends Component {
 			</form>
 		) : (
             <div>
-                {/* <p>User ID: {this.state.user.id}</p>
-                <p>First Name: {this.state.user.first_name}</p>
-                <p>Last Name: {this.state.user.last_name}</p>
-                <p>Phone: {this.state.user.phone}</p> */}
                 
                 <h3>All Tickets:</h3>
 				<div>{ticketList}</div>
@@ -150,14 +145,7 @@ export default class User extends Component {
 						}/tickets/new`}>
 						<button>Create New Ticket</button>
 					</Link>
-				</div>
-
-                {/* <button
-					className='toggleBtn'
-					onClick={this.handleToggleEditForm}>
-					Edit User
-				</button> */}
-                
+				</div>  
             </div>
         )
     }

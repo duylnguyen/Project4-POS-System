@@ -23,24 +23,17 @@ export default class Users extends Component {
         }   
     }
 
-
     render() {
         if (this.state.error){
             return <div>{this.state.error}</div>
         }
         return (
             <div className='menuItem'>
-            
-                    {/* <h1>All Users</h1> */}
                     {this.state.users.map(user => (
                         <div key={user.id} className='items'>
                             <Link to={`/users/${user.id}`} ><button>{user.first_name} {user.last_name}</button></Link>
                         </div>
                     ))}
-                
-
-                
-            
             </div>
         );
     }

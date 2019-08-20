@@ -61,7 +61,7 @@ export default class Ticket extends Component {
     render() {
 
         if (this.state.redirectToTickets) {
-			return <Redirect to='/tickets' />;
+			return <Redirect to='/users' />;
         }
 
         return (

@@ -6,8 +6,8 @@ export default class MenuItemList extends Component {
 
     state = {
         menus: [],
-        displayItem: [],
-        error: ''
+        error: '',
+        filteredMenus: []
     }
 
     componentDidMount() {
@@ -24,26 +24,75 @@ export default class MenuItemList extends Component {
         }   
     }
 
+    handleItemByType = (event) => {
+        event.preventDefault()
+
+        const target = event.target
+        this.getAllMenuItems()
+            if (event.target.id === "Drinks") {
+                this.setState(state => {
+                    return {filteredMenus: state.menus.filter(item => {
+                        return item.menu_type === target.id
+                    })}
+                })
+            } else if (event.target.id === "Appatizers") {
+                this.setState(state => {
+                    return {filteredMenus: state.menus.filter(item => {
+                        return item.menu_type === target.id
+                    })}
+                })
+            } else if (event.target.id === "Main Course") {
+                this.setState(state => {
+                    return {filteredMenus: state.menus.filter(item => {
+                        return item.menu_type === target.id
+                    })}
+                })
+            } else if (event.target.id === "Desserts") {
+                this.setState(state => {
+                    return {filteredMenus: state.menus.filter(item => {
+                        return item.menu_type === target.id
+                    })}
+                })
+            }
+    }
+
     render() {
+
         if (this.state.error){
             return <div>{this.state.error}</div>
         }
+
         return (
             <div className='menuItem'>
-                
-                    {this.state.menus.map(menu => (
-                        <div key={menu.id} className='items' >
-                            
-                                <button onClick={this.props.handleMenuItem} name={menu.id} value={menu}>
-                                {menu.menu_type}<br/>
-                                {menu.name}<br/>
-                                {menu.price}<br/>
-                                </button>
-                            
-                         </div>
-                    ))}
+                <div>
+                    <button onClick={this.handleItemByType} id="Appatizers">Appatizers</button>
+                    <button onClick={this.handleItemByType} id="Main Course">Main Course</button>
+                    <button onClick={this.handleItemByType} id="Desserts">Desserts</button>
+                    <button onClick={this.handleItemByType} id="Drinks">Drinks</button>
+                </div>
+                <div>
+                {this.state.filteredMenus.map(item => (
+                    <div>
+                        <button onClick={this.props.handleMenuItem} name={item.id} value={item}>
+                            {item.name}<br/>
+                            ${item.price}<br/>
+                        </button>
+                    </div>
+                ))}
+                </div>
+
+                {/* {this.state.menus.map(menu => (
+                    <div key={menu.id} className='items' >
+                        
+                        <button onClick={this.props.handleMenuItem} name={menu.id} value={menu}>
+                        {menu.menu_type}<br/>
+                        {menu.name}<br/>
+                        ${menu.price}<br/>
+                        </button>
+                    </div>
+                ))} */}
                 
             </div>
-        );
+        )
     }
 }

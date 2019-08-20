@@ -46,7 +46,7 @@ class App extends Component {
                                 <Route path="/users/:id/tickets/new" component={NewTicketForm}/>
                                 
                                 
-                                <Route path="/tickets/:id" component={Ticket}/>
+                                {/* <Route path="/tickets/:id" component={Ticket}/> */}
                                 <Route path="/tickets" component={Tickets}/>
                                 <Route path="/ticketsAdmin" component={TicketsAdmin}/>
                                 <Route path="/users/new" component={NewUserForm}/>

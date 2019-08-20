@@ -11,10 +11,7 @@ export default class Home extends Component {
             name: '',
             price: '',
             tickets: []
-        },
-        // isEditFormDisplayed: false,
-        redirectToTickets: false,
-        error: ''
+        }
     }
 
     // componentDidMount() {
