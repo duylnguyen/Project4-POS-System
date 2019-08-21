@@ -88,71 +88,74 @@ export default class User extends Component {
         
         let ticketList = this.state.user.tickets.map(ticket => {
 			return (
-				<div>
+				<div className="userTicket">
 					<Link to={`/usersAdmin/${this.props.match.params.id}/ticketsAdmin/${ticket.id}`}>
-                        <button>Table: {ticket.table_number}</button>
+                        <button>TABLE {ticket.table_number}</button>
 					</Link>
 				</div>
 			);
 		});
 
         return this.state.isEditFormDisplayed ? (
-			<form onSubmit={this.handleSubmit}>
-				<div>
-					<label htmlFor='user-first_name'>First Name:</label>
-					<input
-						type='text'
-						name='first_name'
-						id='user-first_name'
-						onChange={this.handleChange}
-						value={this.state.user.first_name}
-					/>
-				</div>
-
-				<div>
-					<label htmlFor='user-last_name'>Last Name:</label>
-					<input
-						type='text'
-						name='last_name'
-						id='user-last_name'
-						onChange={this.handleChange}
-						value={this.state.user.last_name}
-					/>
-				</div>
-
-				<div>
-					<label htmlFor='user-phone'>Phone: </label>
-					<input
-						type='text'
-						name='phone'
-						id='user-phone'
-						onChange={this.handleChange}
-						value={this.state.user.phone}
-					/>
-				</div>
-
-				<input type='submit' value='Submit' />
-			</form>
+			<div className="newForm">
+				<form className="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
+					<div className="field">
+						<label htmlFor='user-first_name'>FIRST NAME</label>
+						<input 
+							placeholder="First Name" 
+							type='text'
+							id='user-first_name'
+							name='first_name'
+							value={this.state.user.first_name}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div className="field">
+						<label htmlFor='user-last_name'>LAST NAME</label>
+						<input 
+							placeholder="Last Name"
+							type='text'
+							id='user-last_name'
+							name='last_name'
+							value={this.state.user.last_name}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div className="field">
+							<label htmlFor='user-phone'>PHONE</label>
+							<input
+								type='text'
+								id='user-phone'
+								name='phone'
+								value={this.state.user.phone}
+								onChange={this.handleChange}
+							/>
+					</div>
+					<button type="submit" class="ui button" id="newUserBtn">SUBMIT</button>
+				</form>
+            </div>
 		) : (
-            <div>
-                <p>User ID: {this.state.user.id}</p>
-                <p>First Name: {this.state.user.first_name}</p>
-                <p>Last Name: {this.state.user.last_name}</p>
-                <p>Phone: {this.state.user.phone}</p>
+            <div className="userInfo">
+                <h3>User ID: {this.state.user.id}</h3>
+                <h3>First Name: {this.state.user.first_name}</h3>
+                <h3>Last Name: {this.state.user.last_name}</h3>
+                <h3>Phone: {this.state.user.phone}</h3>
             
-				<div>{ticketList}</div>
-				<div>
-					<Link to={`/users/${this.props.match.params.id}/tickets/new`}>
-						<button>Create New Ticket</button>
-					</Link>
-				</div>
+                <div className="userTicket">
+                    {ticketList}
+                </div>
+                <div>
+                    <Link to={`/users/${this.props.match.params.id}/tickets/new`}>
+                        <button className="greenBtn">NEW TICKET</button>
+                    </Link>
 
-                <button
-					className='toggleBtn'
-					onClick={this.handleToggleEditForm}>
-					Edit User
-				</button>
-                <button onClick={this.handleDelete}>Delete User</button>
+                    <button
+                        className="greenBtn"
+                        onClick={this.handleToggleEditForm}>
+                        EDIT
+                    </button>
+                    <button className="deleteBtn" onClick={this.handleDelete}>DELETE</button>
+                </div>
                 
             </div>
         )

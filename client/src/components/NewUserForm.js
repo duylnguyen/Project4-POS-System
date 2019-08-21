@@ -49,10 +49,10 @@ export default class NewUserForm extends Component {
 			return <Redirect to={`/usersAdmin`} />;
 		}
 		return (
-			<div>
-				<form class="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
-					<div class="field">
-						<label htmlFor='user-first_name'>First Name</label>
+			<div className="newForm">
+				<form className="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
+					<div className="field">
+						<label htmlFor='user-first_name'>FIRST NAME</label>
 						<input 
 							placeholder="First Name" 
 							type='text'
@@ -62,8 +62,8 @@ export default class NewUserForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<div class="field">
-						<label htmlFor='user-last_name'>Last Name</label>
+					<div className="field">
+						<label htmlFor='user-last_name'>LAST NAME</label>
 						<input 
 							placeholder="Last Name"
 							type='text'
@@ -73,8 +73,8 @@ export default class NewUserForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<div class="field">
-							<label htmlFor='user-phone'>Phone: </label>
+					<div className="field">
+							<label htmlFor='user-phone'>PHONE</label>
 							<input
 								type='text'
 								id='user-phone'
@@ -83,7 +83,7 @@ export default class NewUserForm extends Component {
 								onChange={this.handleChange}
 							/>
 					</div>
-					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
+						<button type="submit" class="ui button" id="newUserBtn">SUBMIT</button>
 					</form>
 					<div>
 					<Keyboard

@@ -140,7 +140,7 @@ export default class User extends Component {
 				<div>{ticketList}</div>
 				<div>
 					<Link to={`/users/${this.props.match.params.id}/tickets/new`}>
-                        <button>NEW TICKET</button>
+                        <button className="greenBtn">NEW TICKET</button>
 			        </Link>
 				</div>  
             </div>

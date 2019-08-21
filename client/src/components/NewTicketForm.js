@@ -16,7 +16,7 @@ export default class NewTicketForm extends Component {
         },
         selectedItems: [],
         redirectToUserTickets: false,
-        tables: [1,2,3,4,5,6,7]
+        tables: [1,2,3,4,5,6]
     }
     
     handleMenuItem = (event) => {
@@ -83,13 +83,13 @@ export default class NewTicketForm extends Component {
         }
 
         const tableList = this.state.tables.map(table => {
-            return <button onClick={this.handleTableSelect} value={table}>TABLE {table}</button>
+            return <button onClick={this.handleTableSelect} value={table} id="addMenuItemBtn">TABLE {table}</button>
         })
         return (
             <div>
                 {tableList}
                 <MenuItemList handleMenuItem={this.handleMenuItem} />
-                <button onClick={this.handleSubmit}>ADD</button>
+                <button className="greenBtn" onClick={this.handleSubmit}>ADD</button>
             </div>
         )
     }

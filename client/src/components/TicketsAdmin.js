@@ -28,16 +28,14 @@ export default class Tickets extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <div>
-                <div>
-                    {this.state.tickets.map(ticket => (
-                        <div key={ticket.id}>
-                            <Link to={`/ticketsAdmin/${ticket.id}`}>
-                                <button>TABLE {ticket.table_number}</button>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+            <div className="allTickets">
+                {this.state.tickets.map(ticket => (
+                    <div key={ticket.id} className="singleTicket">
+                        <Link to={`/ticketsAdmin/${ticket.id}`}>
+                            <button>TABLE {ticket.table_number}</button>
+                        </Link>
+                    </div>
+                ))}
             </div>
         );
     }

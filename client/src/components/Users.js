@@ -30,7 +30,7 @@ export default class Users extends Component {
         return (
             <div className='users'>
                     {this.state.users.map(user => (
-                        <div key={user.id} className='items'>
+                        <div key={user.id} className='singleUser'>
                             <Link to={`/users/${user.id}`} ><button>{user.first_name} {user.last_name}</button></Link>
                         </div>
                     ))}

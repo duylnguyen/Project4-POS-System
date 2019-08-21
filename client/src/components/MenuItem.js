@@ -127,11 +127,11 @@ export default class MenuItem extends Component {
                 <p>Name: {this.state.menu.name}</p>
                 <p>Price: ${this.state.menu.price}</p>
                 <button
-					className='toggleBtn'
+					className="geenBtn"
 					onClick={this.handleToggleEditForm}>
 					Edit Item
 				</button>
-                <button onClick={this.handleDelete}>DELETE</button>
+                <button className="deleteBtn" onClick={this.handleDelete}>DELETE</button>
             </div>
             
         )

@@ -3,7 +3,7 @@ import axios from "axios"
 import { Redirect } from "react-router-dom"
 import { Link } from "react-router-dom"
 
-export default class MenuItem extends Component {
+export default class MenuItemAdmin extends Component {
 
     state = {
         menu: {
@@ -86,53 +86,52 @@ export default class MenuItem extends Component {
         }
 
         return this.state.isEditFormDisplayed ? (
-			<form onSubmit={this.handleSubmit}>
-				<div>
-					<label htmlFor='menu-menu_type'>TYPE</label>
-					<input
-						type='text'
-						name='menu_type'
-						id='menu-menu_type'
-						onChange={this.handleChange}
-						value={this.state.menu.menu_type}
-					/>
-				</div>
-
-				<div>
-					<label htmlFor='menu-name'>NAME</label>
-					<input
-						type='text'
-						name='name'
-						id='menu-name'
-						onChange={this.handleChange}
-						value={this.state.menu.name}
-					/>
-				</div>
-
-				<div>
-					<label htmlFor='menu-price'>PRICE</label>
-					<input
-						type='text'
-						name='price'
-						id='menu-price'
-						onChange={this.handleChange}
-						value={this.state.menu.price}
-					/>
-				</div>
-
-				<input type='submit' value='Submit' />
-			</form>
+            <div className="newForm">
+			<form class="ui form" id="newMenuForm" onSubmit={this.handleSubmit}>
+                <div class="field">
+                    <label htmlFor='menu-menu_type'>TYPE</label>
+                    <input  
+                        type='text'
+                        id='menu-menu_type'
+                        name='menu_type'
+                        onChange={this.handleChange}
+                        value={this.state.menu.menu_type}
+                    />
+                </div>
+                <div class="field">
+                    <label htmlFor='menu-name'>ITEM NAME</label>
+                    <input 
+                        type='text'
+                        id='menu-name'
+                        name='name'
+                        onChange={this.handleChange}
+                        value={this.state.menu.name}
+                    />
+                </div>
+                <div class="field">
+                    <label htmlFor='menu-price'>PRICE</label>
+                    <input
+                        type='text'
+                        id='menu-price'
+                        name='price'
+                        onChange={this.handleChange}
+                        value={this.state.menu.price}
+                    />
+                </div>
+                <button type="submit" class="ui button" id="newUserBtn">Submit</button>
+            </form>
+            </div>
 		) : (
             <div>
-                <p>Type: {this.state.menu.menu_type}</p>
-                <p>Name: {this.state.menu.name}</p>
-                <p>Price: ${this.state.menu.price}</p>
+                <h3>Type: {this.state.menu.menu_type}</h3>
+                <h3>Name: {this.state.menu.name}</h3>
+                <h3>Price: ${this.state.menu.price}</h3>
                 <button
-					className='toggleBtn'
+					className="greenBtn"
 					onClick={this.handleToggleEditForm}>
-					Edit Item
+					EDIT
 				</button>
-                <button onClick={this.handleDelete}>DELETE</button>
+                <button className="deleteBtn" onClick={this.handleDelete}>DELETE</button>
                 
             </div>
             

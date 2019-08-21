@@ -40,10 +40,10 @@ export default class NewMenuItemForm extends Component {
 			return <Redirect to='/menus' />;
 		}
 		return (
-			<div>
-				<form class="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
-					<div class="field">
-						<label htmlFor='menu-menu_type'>Type</label>
+			<div className="newForm">
+				<form className="ui form" id="newMenuForm" onSubmit={this.handleSubmit}>
+					<div className="field">
+						<label htmlFor='menu-menu_type'>TYPE</label>
 						<input 
 							placeholder="Type" 
 							type='text'
@@ -53,8 +53,8 @@ export default class NewMenuItemForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<div class="field">
-						<label htmlFor='menu-name'>Item Name</label>
+					<div className="field">
+						<label htmlFor='menu-name'>ITEM NAME</label>
 						<input 
 							placeholder="Item Name"
 							type='text'
@@ -64,8 +64,8 @@ export default class NewMenuItemForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<div class="field">
-							<label htmlFor='menu-price'>Price </label>
+					<div className="field">
+							<label htmlFor='menu-price'>PRICE</label>
 							<input
 								type='text'
 								id='menu-price'
@@ -75,80 +75,9 @@ export default class NewMenuItemForm extends Component {
 							/>
 					</div>
 					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
-					</form>
-				
+					</form>	
 			</div>
 		);
 	}
 }
 
-{/* <form class="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
-					<div class="field">
-						<label htmlFor='menu-menu_type'>Type</label>
-						<input 
-							placeholder="Type" 
-							type='text'
-							id='menu-menu_type'
-							name='menu_type'
-							value={this.state.newMenuItem.menu_type}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<div class="field">
-						<label htmlFor='menu-name'>Item Name</label>
-						<input 
-							placeholder="Item Name"
-							type='text'
-							id='menu-name'
-							name='name'
-							value={this.state.newMenuItem.name}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<div class="field">
-							<label htmlFor='menu-price'>Price </label>
-							<input
-								type='text'
-								id='menu-price'
-								name='price'
-								value={this.state.newMenuItem.price}
-								onChange={this.handleChange}
-							/>
-					</div>
-					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
-					</form>
-					<form onSubmit={this.handleSubmit}>
-					<div>
-						<label htmlFor='menu-menu_type'>Type:</label>
-						<input
-							type='text'
-							id='menu-menu_type'
-							name='menu_type'
-							value={this.state.newMenuItem.menu_type}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<div>
-						<label htmlFor='menu-name'>Item Name: </label>
-						<input
-							type='text'
-							id='menu-name'
-							name='name'
-							value={this.state.newMenuItem.name}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<div>
-						<label htmlFor='menu-price'>Price: </label>
-						<input
-							type='text'
-							id='menu-price'
-							name='price'
-							value={this.state.newMenuItem.price}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<div>
-						<input type='submit' value='Submit' />
-					</div>
-					</form> */}

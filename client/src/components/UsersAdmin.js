@@ -28,13 +28,13 @@ export default class Users extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <div className='menuItem1'>
+            <div className='users'>
                 {this.state.users.map(user => (
-                    <div key={user.id} className='items'>
+                    <div key={user.id} className='singleUser'>
                         <Link to={`/usersAdmin/${user.id}`} ><button>{user.first_name} {user.last_name}</button></Link>
                     </div>
                 ))}
-                <Link className='new-user-form' to='/users/new'><button>Add User</button></Link>
+                <Link className="'new-user-form'" to='/users/new'><button className="greenBtn">ADD USER</button></Link>
             </div>
         );
     }

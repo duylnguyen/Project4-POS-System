@@ -83,7 +83,7 @@ export default class MenuItemsAdmin extends Component {
                 ))}
                 </div>
                 <div className="addItemBtn">
-                    <Link className='new-menu-item-form' to='/menus/new'><button>ADD ITEM</button></Link>
+                    <Link className='new-menu-item-form' to='/menus/new'><button className="greenBtn">ADD ITEM</button></Link>
                 </div>
             </div>
         )

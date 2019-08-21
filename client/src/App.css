@@ -91,13 +91,13 @@ transition: all 0.3s ease 0s;
   display: flex;
   flex-direction: column;
   background-color: rgb(177, 174, 174);
-  width: 27%;
+  width: 35%;
 }
 
 .container2 {
   display: flex;
   flex-direction: column;
-  width: 73%;
+  width: 65%;
 }
 
 .wrapper3 {
@@ -121,12 +121,13 @@ transition: all 0.3s ease 0s;
 }
 
 .wrapper4 {
+  display: flex;
   margin: 10px;
   height: 600px;
 }
 
 #newUserForm {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -141,3 +142,61 @@ transition: all 0.3s ease 0s;
 .singleUserTickets {
   display: inline;
 }
+
+.allTickets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.userTicket {
+  display: flex;
+  flex-direction: row;
+}
+
+.newForm {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.ticketView {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.ticketOpen {
+  display: inline;
+  /* flex-direction: row;
+  justify-content: space-between; */
+}
+
+.ui.large.table {
+  height: 100hv;
+}
+
+.container, .container2 {
+  height: 100hv;
+  overflow: scroll;
+}
+
+button.item {
+  background-color: aliceblue;
+  color: black;
+}
+
+button.deleteBtn {
+  background-color: red;
+}
+
+button.payBtn {
+  background-color: green;
+}
+
+.greenBtn {
+  background-color: green; 
+}
+
+
+
