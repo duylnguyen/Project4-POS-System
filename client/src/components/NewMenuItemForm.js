@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom"
+import Keyboard from 'react-simple-keyboard'
 
 export default class NewMenuItemForm extends Component {
     
@@ -10,7 +11,8 @@ export default class NewMenuItemForm extends Component {
             name: '',
             price: '',
             tickets: []
-        },
+		},
+		isKeyboardDisplayed: false,
         redirectToMenuItems: false
     }
     
@@ -34,6 +36,12 @@ export default class NewMenuItemForm extends Component {
 			});
 		});
 	};
+
+	handleToggleKeyboard = () => {
+		this.setState(state => {
+			return { isKeyboardDisplayed: !state.isKeyboardDisplayed }
+		})
+	} 
 
 	render() {
 		if (this.state.redirectToMenuItems) {
@@ -74,8 +82,19 @@ export default class NewMenuItemForm extends Component {
 								onChange={this.handleChange}
 							/>
 					</div>
-					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
+						<button type="submit" class="ui button" id="newUserBtn">Submit</button>
+						<button onClick={this.handleToggleKeyboard}>Keyboard</button>
 					</form>	
+					{this.state.isKeyboardDisplayed ? (
+						<div>
+							<Keyboard
+								onChange={input =>
+								this.onChange(input)}
+								onKeyPress={button =>
+								this.onKeyPress(button)}
+							/>
+						</div>
+					) : ( null)}
 			</div>
 		);
 	}

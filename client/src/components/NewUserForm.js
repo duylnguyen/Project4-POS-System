@@ -11,7 +11,8 @@ export default class NewUserForm extends Component {
             first_name: '',
             last_name: '',
             phone: '',
-        },
+		},
+		isKeyboardDisplayed: false,
         redirectToAllUsers: false
     }
     
@@ -30,7 +31,7 @@ export default class NewUserForm extends Component {
                     first_name: '',
                     last_name: '',
                     phone: '',
-                },
+				},
                 redirectToAllUsers: true
 			});
 		});
@@ -43,6 +44,12 @@ export default class NewUserForm extends Component {
 	onKeyPress = (button) => {
 		console.log("Button pressed", button);
 	}
+
+	handleToggleKeyboard = () => {
+		this.setState(state => {
+			return { isKeyboardDisplayed: !state.isKeyboardDisplayed }
+		})
+	} 
 
 	render() {
 		if (this.state.redirectToAllUsers) {
@@ -84,16 +91,19 @@ export default class NewUserForm extends Component {
 							/>
 					</div>
 						<button type="submit" class="ui button" id="newUserBtn">SUBMIT</button>
+						<button onClick={this.handleToggleKeyboard}>Keyboard</button>
 					</form>
-					<div>
-					<Keyboard
-						onChange={input =>
-						this.onChange(input)}
-						onKeyPress={button =>
-						this.onKeyPress(button)}
-					/>
-					</div>
+					{this.state.isKeyboardDisplayed ? (
+						<div>
+							<Keyboard
+								onChange={input =>
+								this.onChange(input)}
+								onKeyPress={button =>
+								this.onKeyPress(button)}
+							/>
+						</div>
+					) : ( null)}
 			</div>
-		);
+		)
 	}
 }
