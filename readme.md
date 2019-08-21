@@ -1,31 +1,40 @@
-# mern-template-project
+# PROJECT #4: POS SYSTEM
 
-# Setup A New Project From This Template
+## Overview
+For project #4, I decide to challenge my self and pick a restaurant POS system with many to many relationship models which I always wanted to learn how to work with. My app is created for server use in the restaurant which can create user account and take the order from the customer, in order to send ticket to the kitchen or checkout payment.
+## Technologies Used
+    - Django
+    - React
+    - Python
+    - JavaScript
+    - Mostly CSS
 
-If you are starting a new project do the following:
+## Dependencies:
+    - Semantic Reacts UI
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+## Links
+- Project Planning:
+<a href="https://trello.com/b/nKULAjB5/pos-system" target="_blank">Trello</a>
+- Project Hosted:
+<a href="https://pos-project4.herokuapp.com/" target="_blank">Heroku</a>
 
-# Setup A New Project Without This Template
+## Features
+3 models:                           
+- user model           
+- ticket model
+- menu model 
 
-If you want to start a project without using this template directory do the
-following:
+## Future Improvements
+- Create User Authentication
+- Dynamically add menu item and render on the same screen
+- Add the quantity of the items
+- Using a third party API like Square or Stripe for payment method 
 
+## Wireframe
+![alt text](./client/src/images/Home.png "Wireframe Image")
+![alt text](./client/src/images/MenuItems.png "Wireframe Image")
+![alt text](./client/src/images/NewItemForm.png "Wireframe Image")
+![alt text](./client/src/images/Ticket.png "Wireframe Image")
 
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+## ERD
+![alt text](./client/src/images/ERD-Project4.png "Wireframe Image")
