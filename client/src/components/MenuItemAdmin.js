@@ -123,9 +123,25 @@ export default class MenuItemAdmin extends Component {
             </div>
 		) : (
             <div>
-                <h3>Type: {this.state.menu.menu_type}</h3>
-                <h3>Name: {this.state.menu.name}</h3>
-                <h3>Price: ${this.state.menu.price}</h3>
+                <div>
+                    <table className="ui large table" id="scrollable">
+                        <thead className="">
+                            <tr className="">
+                            <th className="">Type</th>
+                            <th className="">Item</th>
+                            <th className="">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody className="">
+                                <tr className="">
+                                <td className="">{this.state.menu.menu_type}</td>
+                                <td className="">{this.state.menu.name}</td>
+                                <td className="">${this.state.menu.price}</td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <button
 					className="greenBtn"
 					onClick={this.handleToggleEditForm}>

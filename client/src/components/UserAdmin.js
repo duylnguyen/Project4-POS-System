@@ -136,11 +136,27 @@ export default class User extends Component {
             </div>
 		) : (
             <div className="userInfo">
-                <h3>User ID: {this.state.user.id}</h3>
-                <h3>First Name: {this.state.user.first_name}</h3>
-                <h3>Last Name: {this.state.user.last_name}</h3>
-                <h3>Phone: {this.state.user.phone}</h3>
-            
+                <div>
+                    <table className="ui large table" id="scrollable">
+                        <thead className="">
+                            <tr className="">
+                                <th className="">Server ID</th>
+                                <th className="">First Name</th>
+                                <th className="">Last Name</th>
+                                <th className="">Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody className="">
+                            <tr className="">
+                                <td className="">{this.state.user.id}</td>
+                                <td className="">{this.state.user.first_name}</td>
+                                <td className="">{this.state.user.last_name}</td>
+                                <td className="">{this.state.user.phone}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div className="userTicket">
                     {ticketList}
                 </div>
