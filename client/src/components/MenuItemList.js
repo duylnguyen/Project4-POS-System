@@ -29,25 +29,25 @@ export default class MenuItemList extends Component {
 
         const target = event.target
         this.getAllMenuItems()
-            if (event.target.id === "DRINKS") {
+            if (event.target.id === "Drinks") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "APPATIZERS") {
+            } else if (event.target.id === "Appetizers") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "MAIN COURSE") {
+            } else if (event.target.id === "Main Course") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "DESSERTS") {
+            } else if (event.target.id === "Desserts") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
@@ -65,7 +65,7 @@ export default class MenuItemList extends Component {
         return (
             <div className="menuItem">
                 <div className="typeBtn">
-                    <button onClick={this.handleItemByType} id="Appatizers">APPATIZERS</button>
+                    <button onClick={this.handleItemByType} id="Appetizers">APPETIZERS</button>
                     <button onClick={this.handleItemByType} id="Main Course">MAIN COURSE</button>
                     <button onClick={this.handleItemByType} id="Desserts">DESSERTS</button>
                     <button onClick={this.handleItemByType} id="Drinks">DRINKS</button>

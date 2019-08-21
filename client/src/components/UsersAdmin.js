@@ -28,7 +28,7 @@ export default class Users extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <div className='menuItem'>
+            <div className='menuItem1'>
                 {this.state.users.map(user => (
                     <div key={user.id} className='items'>
                         <Link to={`/usersAdmin/${user.id}`} ><button>{user.first_name} {user.last_name}</button></Link>

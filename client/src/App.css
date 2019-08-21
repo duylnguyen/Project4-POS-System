@@ -35,10 +35,10 @@
 button {
   width: 140px;
   height: 100px;
-  margin-right: 10px;
+  margin: 3px;
   display:inline-block;
   padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
+  /* margin:0 0.3em 0.3em 0; */
   border-radius: 5px;
   box-sizing: border-box;
   text-decoration:none;
@@ -81,7 +81,7 @@ transition: all 0.3s ease 0s;
 }
 
 .wrapper5 {
-  margin: 5px;
+  margin: 10px;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -91,13 +91,13 @@ transition: all 0.3s ease 0s;
   display: flex;
   flex-direction: column;
   background-color: rgb(177, 174, 174);
-  width: 28%;
+  width: 27%;
 }
 
 .container2 {
   display: flex;
   flex-direction: column;
-  width: 72%;
+  width: 73%;
 }
 
 .wrapper3 {
@@ -113,8 +113,15 @@ transition: all 0.3s ease 0s;
   height: min-content;
 }
 
+.users {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: min-content;
+}
+
 .wrapper4 {
-  margin: 5px;
+  margin: 10px;
   height: 600px;
 }
 
@@ -128,5 +135,9 @@ transition: all 0.3s ease 0s;
 }
 
 .singleItemBtn {
+  display: inline;
+}
+
+.singleUserTickets {
   display: inline;
 }

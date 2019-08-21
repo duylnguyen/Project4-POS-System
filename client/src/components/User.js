@@ -88,9 +88,9 @@ export default class User extends Component {
         
         let ticketList = this.state.user.tickets.map(ticket => {
 			return (
-                <div>
+                <div className="singleUserTickets">
 					<Link to={`/users/${this.props.match.params.id}/tickets/${ticket.id}`}>
-                        <button>Table: {ticket.table_number}</button>
+                        <button>TABLE {ticket.table_number}</button>
 					</Link>
 				</div>
 			)
@@ -99,7 +99,7 @@ export default class User extends Component {
         return this.state.isEditFormDisplayed ? (
 			<form onSubmit={this.handleSubmit}>
 				<div>
-					<label htmlFor='user-first_name'>First Name:</label>
+					<label htmlFor='user-first_name'>First Name</label>
 					<input
 						type='text'
 						name='first_name'
@@ -110,7 +110,7 @@ export default class User extends Component {
 				</div>
 
 				<div>
-					<label htmlFor='user-last_name'>Last Name:</label>
+					<label htmlFor='user-last_name'>Last Name</label>
 					<input
 						type='text'
 						name='last_name'
@@ -121,7 +121,7 @@ export default class User extends Component {
 				</div>
 
 				<div>
-					<label htmlFor='user-phone'>Phone: </label>
+					<label htmlFor='user-phone'>Phone</label>
 					<input
 						type='text'
 						name='phone'
@@ -140,7 +140,7 @@ export default class User extends Component {
 				<div>{ticketList}</div>
 				<div>
 					<Link to={`/users/${this.props.match.params.id}/tickets/new`}>
-                        <button>Create New Ticket</button>
+                        <button>NEW TICKET</button>
 			        </Link>
 				</div>  
             </div>

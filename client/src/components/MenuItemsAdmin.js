@@ -35,7 +35,7 @@ export default class MenuItemsAdmin extends Component {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "Appatizers") {
+            } else if (event.target.id === "Appetizers") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
@@ -64,24 +64,26 @@ export default class MenuItemsAdmin extends Component {
 
         return (
             <div className='menuItem'>
-                <div>
-                    <button onClick={this.handleItemByType} id="Appatizers">Appatizers</button>
-                    <button onClick={this.handleItemByType} id="Main Course">Main Course</button>
-                    <button onClick={this.handleItemByType} id="Desserts">Desserts</button>
-                    <button onClick={this.handleItemByType} id="Drinks">Drinks</button>
+                <div className="typeBtn">
+                    <button onClick={this.handleItemByType} id="Appetizers">APPETIZERS</button>
+                    <button onClick={this.handleItemByType} id="Main Course">MAIN COURSE</button>
+                    <button onClick={this.handleItemByType} id="Desserts">DESSERTS</button>
+                    <button onClick={this.handleItemByType} id="Drinks">DRINKS</button>
                 </div>
-                <div>
-                {this.state.filteredMenus.map(item => (
-                    <div>
-                        <Link to={`/menusAdmin/${item.id}`}>
-                        <button>
-                            {item.name}<br/>
-                            ${item.price}<br/>
-                        </button>
+                <div className="itemBtn">
+                {this.state.filteredMenus.map(menu => (
+                    <div className="singleItemBtn">
+                        <Link to={`/menusAdmin/${menu.id}`}>
+                            <button className="item">
+                                {menu.name}<br/>
+                                ${menu.price}<br/>
+                            </button>
                         </Link>
                     </div>
                 ))}
-                <Link className='new-menu-item-form' to='/menus/new'><button>Add Item</button></Link>
+                </div>
+                <div className="addItemBtn">
+                    <Link className='new-menu-item-form' to='/menus/new'><button>ADD ITEM</button></Link>
                 </div>
             </div>
         )

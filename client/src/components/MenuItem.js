@@ -129,7 +129,7 @@ export default class MenuItem extends Component {
                 <button
 					className='toggleBtn'
 					onClick={this.handleToggleEditForm}>
-					Edit Menu Item
+					Edit Item
 				</button>
                 <button onClick={this.handleDelete}>DELETE</button>
             </div>
