@@ -41,9 +41,85 @@ export default class NewMenuItemForm extends Component {
 		}
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
+				<form class="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
+					<div class="field">
+						<label htmlFor='menu-menu_type'>Type</label>
+						<input 
+							placeholder="Type" 
+							type='text'
+							id='menu-menu_type'
+							name='menu_type'
+							value={this.state.newMenuItem.menu_type}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div class="field">
+						<label htmlFor='menu-name'>Item Name</label>
+						<input 
+							placeholder="Item Name"
+							type='text'
+							id='menu-name'
+							name='name'
+							value={this.state.newMenuItem.name}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div class="field">
+							<label htmlFor='menu-price'>Price </label>
+							<input
+								type='text'
+								id='menu-price'
+								name='price'
+								value={this.state.newMenuItem.price}
+								onChange={this.handleChange}
+							/>
+					</div>
+					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
+					</form>
+				
+			</div>
+		);
+	}
+}
+
+{/* <form class="ui form" id="newUserForm" onSubmit={this.handleSubmit}>
+					<div class="field">
+						<label htmlFor='menu-menu_type'>Type</label>
+						<input 
+							placeholder="Type" 
+							type='text'
+							id='menu-menu_type'
+							name='menu_type'
+							value={this.state.newMenuItem.menu_type}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div class="field">
+						<label htmlFor='menu-name'>Item Name</label>
+						<input 
+							placeholder="Item Name"
+							type='text'
+							id='menu-name'
+							name='name'
+							value={this.state.newMenuItem.name}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div class="field">
+							<label htmlFor='menu-price'>Price </label>
+							<input
+								type='text'
+								id='menu-price'
+								name='price'
+								value={this.state.newMenuItem.price}
+								onChange={this.handleChange}
+							/>
+					</div>
+					<button type="submit" class="ui button" id="newUserBtn">Submit</button>
+					</form>
+					<form onSubmit={this.handleSubmit}>
 					<div>
-						<label htmlFor='menu-menu_type'>Type: </label>
+						<label htmlFor='menu-menu_type'>Type:</label>
 						<input
 							type='text'
 							id='menu-menu_type'
@@ -75,8 +151,4 @@ export default class NewMenuItemForm extends Component {
 					<div>
 						<input type='submit' value='Submit' />
 					</div>
-				</form>
-			</div>
-		);
-	}
-}
+					</form> */}

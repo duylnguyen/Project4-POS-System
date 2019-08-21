@@ -17,31 +17,31 @@ export default class Mainpage extends Component {
         return (
             <div className='mainpage'>
             {this.state.isAdminViewDisplayed ? (
-                <div className='wrapper1'>
+                <div className='wrapper5'>
                     <div className='menu'>
-                        <Link to='/menusAdmin'><button>Menu Items</button></Link>
+                        <Link to='/menusAdmin'><button>MENU ITEMS</button></Link>
                     </div>
                     <div className='ticket'>
-                        <Link to='/ticketsAdmin'><button>Tickets</button></Link>
+                        <Link to='/ticketsAdmin'><button>TICKETS</button></Link>
                     </div>
                     <div className='user'>
-                        <Link to='/usersAdmin'><button>Employees</button></Link>
+                        <Link to='/usersAdmin'><button>EMPLOYEES</button></Link>
                     </div>
                     <div className='mainpage'>
-                        <button onClick={this.handleToggleAdminView}>Log Out</button>
+                        <button onClick={this.handleToggleAdminView}>LOG OUT</button>
                     </div>
                 </div>
             
             ) : (
-                <div className='wrapper1'>
+                <div className='wrapper5'>
                     <div className='menu'>
-                        <Link to='/menus'><button>Menu Items</button></Link>
+                        <Link to='/menus'><button>MENU ITEMS</button></Link>
                     </div>
                     <div className='login'>
-                        <Link to='/users'><button>Employees Log In</button></Link>
+                        <Link to='/users'><button>EMPLOYEES LOG IN</button></Link>
                     </div>
                     <div className='admin'>
-                        <button onClick={this.handleToggleAdminView}>Admin</button>
+                        <button onClick={this.handleToggleAdminView}>ADMIN</button>
                     </div>
                 </div>
             )

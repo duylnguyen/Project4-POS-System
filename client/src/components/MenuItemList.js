@@ -29,25 +29,25 @@ export default class MenuItemList extends Component {
 
         const target = event.target
         this.getAllMenuItems()
-            if (event.target.id === "Drinks") {
+            if (event.target.id === "DRINKS") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "Appatizers") {
+            } else if (event.target.id === "APPATIZERS") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "Main Course") {
+            } else if (event.target.id === "MAIN COURSE") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
                     })}
                 })
-            } else if (event.target.id === "Desserts") {
+            } else if (event.target.id === "DESSERTS") {
                 this.setState(state => {
                     return {filteredMenus: state.menus.filter(item => {
                         return item.menu_type === target.id
@@ -63,17 +63,17 @@ export default class MenuItemList extends Component {
         }
 
         return (
-            <div className='menuItem'>
-                <div>
-                    <button onClick={this.handleItemByType} id="Appatizers">Appatizers</button>
-                    <button onClick={this.handleItemByType} id="Main Course">Main Course</button>
-                    <button onClick={this.handleItemByType} id="Desserts">Desserts</button>
-                    <button onClick={this.handleItemByType} id="Drinks">Drinks</button>
+            <div className="menuItem">
+                <div className="typeBtn">
+                    <button onClick={this.handleItemByType} id="Appatizers">APPATIZERS</button>
+                    <button onClick={this.handleItemByType} id="Main Course">MAIN COURSE</button>
+                    <button onClick={this.handleItemByType} id="Desserts">DESSERTS</button>
+                    <button onClick={this.handleItemByType} id="Drinks">DRINKS</button>
                 </div>
-                <div>
+                <div className="itemBtn">
                 {this.state.filteredMenus.map(item => (
-                    <div>
-                        <button onClick={this.props.handleMenuItem} name={item.id} value={item}>
+                    <div className="singleItemBtn">
+                        <button className="item" onClick={this.props.handleMenuItem} name={item.id} value={item}>
                             {item.name}<br/>
                             ${item.price}<br/>
                         </button>

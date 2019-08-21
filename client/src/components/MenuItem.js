@@ -87,7 +87,7 @@ export default class MenuItem extends Component {
         return this.state.isEditFormDisplayed ? (
 			<form onSubmit={this.handleSubmit}>
 				<div>
-					<label htmlFor='menu-menu_type'>Type:</label>
+					<label htmlFor='menu-menu_type'>TYPE</label>
 					<input
 						type='text'
 						name='menu_type'
@@ -98,7 +98,7 @@ export default class MenuItem extends Component {
 				</div>
 
 				<div>
-					<label htmlFor='menu-name'>Name:</label>
+					<label htmlFor='menu-name'>NAME</label>
 					<input
 						type='text'
 						name='name'
@@ -109,7 +109,7 @@ export default class MenuItem extends Component {
 				</div>
 
 				<div>
-					<label htmlFor='menu-price'>Price: </label>
+					<label htmlFor='menu-price'>PRICE</label>
 					<input
 						type='text'
 						name='price'
@@ -131,7 +131,7 @@ export default class MenuItem extends Component {
 					onClick={this.handleToggleEditForm}>
 					Edit Menu Item
 				</button>
-                <button onClick={this.handleDelete}>Delete Menu Item</button>
+                <button onClick={this.handleDelete}>DELETE</button>
             </div>
             
         )

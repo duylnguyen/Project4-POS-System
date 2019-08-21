@@ -59,16 +59,21 @@ export default class NewTicketForm extends Component {
 
     handleTableSelect = (event) => {
         const target = event.target
-        this.setState(state => {
-            return {newTicket: {
-                table_number: target.value,
-                open: state.newTicket.open,
-                close: state.newTicket.close,
-                open_ticket: state.newTicket.open_ticket,
-                menu_items: state.newTicket.menu_items,
-                user: state.newTicket.user
-            }}
-        })
+        console.log(event.target)
+            if (event.target === this.state.newTicket.table_number) {
+                console.log(target.value)
+            } else {
+            this.setState(state => {
+                return {newTicket: {
+                    table_number: target.value,
+                    open: state.newTicket.open,
+                    close: state.newTicket.close,
+                    open_ticket: state.newTicket.open_ticket,
+                    menu_items: state.newTicket.menu_items,
+                    user: state.newTicket.user
+                }}
+            })
+        }
     }
 
     render() {

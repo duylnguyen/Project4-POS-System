@@ -139,12 +139,9 @@ export default class User extends Component {
                 <h3>Server: {this.state.user.first_name} {this.state.user.last_name}</h3>
 				<div>{ticketList}</div>
 				<div>
-					<Link
-						to={`/users/${
-							this.props.match.params.id
-						}/tickets/new`}>
-						<button>Create New Ticket</button>
-					</Link>
+					<Link to={`/users/${this.props.match.params.id}/tickets/new`}>
+                        <button>Create New Ticket</button>
+			        </Link>
 				</div>  
             </div>
         )

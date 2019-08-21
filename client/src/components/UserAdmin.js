@@ -83,7 +83,7 @@ export default class User extends Component {
     render() {
 
         if (this.state.redirectToUsers) {
-			return <Redirect to='/users' />;
+			return <Redirect to='/usersAdmin' />;
         }
         
         let ticketList = this.state.user.tickets.map(ticket => {

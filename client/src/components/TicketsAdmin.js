@@ -30,7 +30,6 @@ export default class Tickets extends Component {
         return (
             <div>
                 <div>
-                    <h1>All Tickets</h1>
                     {this.state.tickets.map(ticket => (
                         <div key={ticket.id}>
                             <Link to={`/ticketsAdmin/${ticket.id}`}>

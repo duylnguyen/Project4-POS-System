@@ -52,8 +52,14 @@ button {
   border: none;
 }
 
-a.button3:hover {
-  background-color: #4095c6;
+button:hover {
+  color: #fbfbfb !important;
+font-weight: 700 !important;
+letter-spacing: 2px;
+background: none;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.3s ease 0s;
 }
 
 @media all and (max-width:30em) {
@@ -67,14 +73,14 @@ a.button3:hover {
   display: flex;
   flex-direction: row;
   height: 100vh;
-  background-color: rgb(37, 37, 37);
+  background-color: #1f5675;
 }
 
 .mainpage {
   display: flex;
 }
 
-.wrapper1 {
+.wrapper5 {
   margin: 5px;
   display: flex;
   width: 100%;
@@ -84,7 +90,7 @@ a.button3:hover {
 .container {
   display: flex;
   flex-direction: column;
-  background-color: antiquewhite;
+  background-color: rgb(177, 174, 174);
   width: 28%;
 }
 
@@ -102,7 +108,7 @@ a.button3:hover {
 
 .menuItem {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   height: min-content;
 }
@@ -119,4 +125,8 @@ a.button3:hover {
 
 #newUserBtn {
   float: right;
+}
+
+.singleItemBtn {
+  display: inline;
 }
